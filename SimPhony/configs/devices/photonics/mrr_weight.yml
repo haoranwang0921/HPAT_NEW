@@ -1,0 +1,71 @@
+mrr_weight:
+  HPAT_MRR:
+    # This is a literature-calibrated HPAT modelling profile, not a claim that
+    # all values were measured on one fabricated device.
+    PDK: "mixed literature-calibrated SOI model"
+    ref: "https://doi.org/10.1364/OE.14.009431; https://doi.org/10.1364/OE.18.010941; https://doi.org/10.1364/OE.26.026422; https://doi.org/10.1364/OE.26.013106; https://doi.org/10.1364/OE.499055"
+    type: MRR
+    exp: False
+    cfgs:
+      # A 5-um-radius SOI ring is demonstrated by Dong et al. (2010).
+      radius: 5.0 # um
+
+      # SimPhony's area path requires length/width or area.  The 10 x 10 um
+      # values are the ring bounding box (2R x 2R), excluding heater routing,
+      # contacts, guard spacing, and control electronics.
+      length: 10.0 # um
+      width: 10.0 # um
+
+      # HPAT Table 3 assumption.  Xu et al. (2006) measured approximately
+      # 0.1-dB off-resonance residual-coupling loss for a cascaded 5-um ring.
+      # This must not be interpreted as the on-resonance drop-port loss; Tait
+      # et al. (2018) report a minimum drop-port insertion loss of 1.7 dB.
+      insertion_loss: 0.1 # dB, off-resonance through-path loss
+
+      # Representative low-bias value for HPAT.  A fabricated MRR weight bank
+      # measured about 20 dB at low heater bias and about 5 dB at high bias.
+      extinction_ratio: 15.0 # dB
+
+      # Dong et al. report 2.4 mW/nm, whose reciprocal is 0.4167 nm/mW.
+      tuning_efficiency: 0.4167 # nm/mW
+
+      # Rounded architecture value.  Xu et al. measured an 18-nm FSR for
+      # approximately 5-um rings; Stojanovic et al. report 3.2 THz at 1310 nm,
+      # equivalent to approximately 18.3 nm.
+      FSR: 20.0 # nm
+
+      # Typical uncompensated SOI value.  Published measurements commonly
+      # report about 80 pm/K; 0.1 nm/degC is a conservative rounded value.
+      thermal_sensitivity: 0.1 # nm/degC
+
+      # Stojanovic et al. report loaded Q up to 10,000 for 5-um active rings.
+      Q_factor: 10000
+
+      # Representative average weight-hold bias, not a device constant.
+      # From Q=10000 at 1550 nm, HWHM=0.0775 nm.  Dividing by 0.4167 nm/mW
+      # gives 0.186 mW to move by one HWHM; half of that range is about
+      # 0.093 mW, rounded here to 0.1 mW.
+      # Thermal tuning response time.  A realistic SOI ring response is
+      # O(1 us).  Used by the energy model to compute tuning_cycles.
+      response_time: 1000 # ns
+
+      # Program power: active tuning power when shifting the resonance
+      # (higher than hold because the heater is driven to move the ring).
+      # Estimated from: ~0.5 HWHM shift in response_time at tuning_efficiency.
+      program_power: 0.093 # mW, average during an active tuning event
+
+      static_power: 0.1 # mW/MRR, hold/bias power to maintain tuned state
+
+      # Calibration parameters (currently placeholders — full model TBD)
+      calibration_power: 0.0 # mW, incremental power during recalibration
+      calibration_period: 0.0 # s, interval between recalibrations
+
+      parameter_provenance:
+        radius: "Dong et al., Optics Express 18, 10941-10946 (2010), DOI 10.1364/OE.18.010941"
+        insertion_loss: "HPAT Table 3; corroborating off-resonance measurement: Xu et al., Optics Express 14, 9431-9435 (2006), DOI 10.1364/OE.14.009431"
+        extinction_ratio: "Representative value within the measured 5-20 dB heater-bias range in Tait et al., Optics Express 26, 26422-26443 (2018), DOI 10.1364/OE.26.026422"
+        tuning_efficiency: "Reciprocal of the measured 2.4 mW/nm in Dong et al. (2010)"
+        FSR: "Rounded from 18 nm in Xu et al. (2006), consistent with the 5-um-ring result in Stojanovic et al., Optics Express 26, 13106-13121 (2018), DOI 10.1364/OE.26.013106"
+        thermal_sensitivity: "Conservative rounding of approximately 80 pm/K SOI measurements reported in Optics Express, DOI 10.1364/OE.499055"
+        Q_factor: "Loaded Q up to 10000 in Stojanovic et al. (2018)"
+        static_power: "HPAT modelling assumption derived from Q and tuning efficiency; depends on detuning and control policy"

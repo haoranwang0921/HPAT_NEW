@@ -1,0 +1,12 @@
+QConv2d:
+  in_bit: 8
+  w_bit: 8
+  out_bit: 8
+QLinear:
+  in_bit: 8
+  w_bit: 8
+  out_bit: 8
+QMatMul:
+  in_bit: 8
+  w_bit: 8
+  out_bit: 8

@@ -1,0 +1,40 @@
+{
+  "schema_version": "hpat-joint-v1",
+  "user_confirmed": {
+    "date": "2026-09-06",
+    "physical_array": [16, 16],
+    "tiles": 2,
+    "cores_per_tile": 2,
+    "mapping_modes": ["digital", "linear", "linear_pointwise", "linear_pointwise_attention"],
+    "program_response_time_s": 1e-11,
+    "program_response_scope": "entire_16x16_physical_array_written_and_settled",
+    "program_energy_policy": "same_energy_per_write_as_previous_1us_configuration",
+    "resolutions": {"xxs": 192, "xs": 224, "s": 256},
+    "batch_size": 1,
+    "electronic_profile": "joint_sim_nominal",
+    "signed_mapping": "row_pair_digital_two_input_passes",
+    "cost_and_memory_sweeps": true
+  },
+  "model_assumptions": {
+    "bits": 8,
+    "accumulator_bits": 32,
+    "core_frequency_ghz": 5.0,
+    "sram_capacity_bytes": 1048576,
+    "activation_scratchpad_bytes": 8388608,
+    "hbm_bandwidth_bytes_per_s": 512000000000.0,
+    "sram_bandwidth_bytes_per_s": 2000000000000.0,
+    "dma_fixed_latency_s": 0.0000001,
+    "program_parallelism": 4,
+    "program_energy_multiplier": 100000.0,
+    "electronic_peak_flops": 312000000000000.0,
+    "vector_peak_fraction": 0.1,
+    "signed_mapping": "row_pair_digital_two_input_passes",
+    "activation_memory_policy": "explicit_spill_between_materialized_ops",
+    "static_power_policy": "all_present_domains_on_for_entire_inference",
+    "operator_dispatch": "in_order_with_within_operator_tile_parallelism",
+    "inferences_per_run": 3,
+    "numerical_evidence": "fp32_trace_only_not_quantized_accuracy"
+  },
+  "sweeps": {},
+  "scope": "User-specified hypothetical 10 ps whole-array write-and-settle latency. Per-write energy is unchanged from the previous 1 us run: multiplier 100000 cancels the existing duration/1e-6 tuning-energy factor; bias-DAC event energy is unchanged. Only the 12 main cases are rerun. No driver peak-power, device settling, clock-domain timing, or accuracy validation is implied. All other hardware and scheduling assumptions are unchanged."
+}

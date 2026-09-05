@@ -1,0 +1,39 @@
+Conv2d:
+  sub_arch: HPAT
+  dim_map:
+    M: width
+    N: height
+    D: wavelength
+Linear:
+  sub_arch: HPAT
+  dim_map:
+    M: width
+    N: height
+    D: wavelength
+QConv2d:
+  sub_arch: HPAT
+  dim_map:
+    M: width
+    N: height
+    D: wavelength
+QLinear:
+  sub_arch: HPAT
+  dim_map:
+    M: width
+    N: height
+    D: wavelength
+# MatMul and QMatMul are NOT mapped to HPAT because QK^T and AV
+# have dynamic operands (both change per forward pass) and cannot
+# use fixed-weight MRR banks.  They remain on the electronic side.
+# MatMul:
+#   sub_arch: HPAT
+#   dim_map:
+#     M: width
+#     N: height
+#     D: wavelength
+# QMatMul:
+#   sub_arch: HPAT
+#   dim_map:
+#     M: width
+#     N: height
+#     D: wavelength

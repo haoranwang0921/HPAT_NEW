@@ -1,0 +1,6 @@
+HPAT_hetero:
+  v1:
+    sub_archs:
+      HPAT:
+        version: v1
+        file: default

@@ -1,0 +1,60 @@
+MRR_DOT:
+  v1:
+    devices:
+      mrr_weight:
+        - HPAT_MRR
+      photodetector:
+        - LT_PD
+
+    node:
+      netlist:
+        instances:
+          i0: [mrr_weight, 0]     # MRR weight, replicated N=64 for WDM cascade
+          i1: [photodetector, 0]  # shared PD at cascade end
+
+        # replication N=64 creates a cascade chain:
+        #   i0_0 -> i0_1 -> ... -> i0_63
+        # each edge weight = MRR insertion_loss (0.1 dB through-path)
+        # total node IL = 64 * 0.1 = 6.4 dB
+        replication:
+          i0: N
+
+        # scaling_rules: total device counts across the architecture.
+        # H nodes/core × R*C cores = 6144 WDM dot-product nodes total.
+        # Each node has N=64 MRRs (one per λ) in series + 1 shared PD.
+        # MRR total = H*R*C*N = 64*12*8*64 = 393216
+        # PD  total = H*R*C   = 64*12*8    = 6144
+        scaling_rules:
+          i0: H*R*C*N
+          i1: H*R*C
+
+        sharing_rules: null
+
+        nets:
+          # Last replicated MRR (i0_63) -> photodetector
+          n_last: [i0(e), i1]
+
+        ports_num: null
+
+        # All replicated MRRs are weight-encoding devices (operand 1).
+        # The PD is passive — it just sums optical power.
+        operand_1: [i0]
+        operand_2: null
+
+        insertion_loss_final_device: photodetector
+        chip_mapping: null
+
+      # WDM model: one node per output row, not per cross-point.
+      # Must be INSIDE the inner node: dict so CoreLib.load_node()
+      # preserves it — siblings of node: at v1 level are dropped.
+      node_count: H*R*C
+
+      device_spacing_flag: True
+      node_spacing_flag: True
+      device_spacing: [5, 5, 5, 5]
+      node_spacing: [5, 5, 5, 5]
+
+      longest_path: null
+      bounding_box_area: null
+      bounding_box_estimator: null
+      device_counter_function: null

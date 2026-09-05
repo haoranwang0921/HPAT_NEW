@@ -1,0 +1,31 @@
+HPAT:
+  v1:
+    memory:
+      HBM:
+        read_energy: 62.4
+        write_energy: 62.4
+        bandwidth: 1024
+      GLB2:
+        cache_size: 485
+        block_size: 8
+        config_file_name: "GLB2.cfg"
+        output_file_name: "GLB2Report.txt"
+      GLB1:
+        cache_size: 485
+        block_size: 8
+        config_file_name: "GLB1.cfg"
+        output_file_name: "GLB1Report.txt"
+      RF:
+        cache_size: 485
+        block_size: 8
+        config_file_name: "RF.cfg"
+        output_file_name: "RFReport.txt"
+    # 12 tiles, each tile contains 8 independent 64 x 64 PDPU cores.
+    tiles: 12
+    cores_per_tile: 8
+    dataflow: "weight_stationary"
+    op_type: "MVM"
+    core:
+      PDPU:
+        version: v1
+        file: default

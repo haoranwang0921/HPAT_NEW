@@ -1,0 +1,102 @@
+PDPU:
+  v1:
+    devices:
+      mzm:
+        - LT_MZM
+      dac:
+        - DAC_2
+      adc:
+        - ADC_SAR_1
+      tia:
+        - TIA_1
+      micro_comb:
+        - LT_Micro_Comb
+      on_chip_laser:
+        - Customized_Laser
+      laser_splitter:
+        - Customized_Laser_Splitter
+
+    core:
+      type: MicroRingArray
+      coherent: False
+      universal: True
+      forward: direct
+
+      range:
+        weight: full
+        input: full
+        output: full
+
+      # One PDPU core maps a 64 x 64 weight tile.
+      width: 64
+      height: 64
+      num_wavelength: 64
+      work_freq: 5
+
+      precision:
+        in_bit: 8
+        w_bit: 8
+        out_bit: 8
+
+      netlist:
+        instances:
+          i0: [mzm, 0]              # EOM for input encoding
+          i1: [dac, 0]              # DAC drives EOM
+          i2: [adc, 0]              # ADC per row (H total)
+          i3: [on_chip_laser, 0]    # Laser source
+          i4: [micro_comb, 0]       # WDM comb source (N wavelengths)
+          i5: [laser_splitter, 0]   # Broadcast splitter: 1 to H rows
+          i6: [node, 0]             # one WDM node per output row (H nodes per core)
+          i7: [tia, 0]              # TIA per row (H total)
+          i8: [dac, 0]              # DAC for MRR thermal bias (column-shared with S/H)
+
+        scaling_rules:
+          i0: N*R*C
+          i1: N*R*C
+          i2: H*R*C
+          i3: 1
+          i4: 1
+          i5: H*R*C
+          # One WDM dot-product node per output row (H=64 per core)
+          i6: H*R*C
+          i7: H*R*C
+          i8: W*R*C
+
+        nets:
+          n0: [i3, i4]            # Laser -> micro-comb (pump)
+          n1: [i4, i0]            # Micro-comb -> EOM (N wavelength carriers)
+          n2: [i0, i5(s)]         # EOM -> broadcast splitter entry
+          n3: [i5(e), i6]         # Splitter exits -> H parallel WDM dot-product rows
+          n4: [i6, i7]            # One PD output per row -> TIA
+          n5: [i7, i2]            # TIA -> ADC
+          n6: [i1, i0]            # DAC -> EOM (electrical drive)
+
+        replication: null
+        ports_num: null
+
+        # operand_1: MRR thermal bias DACs (weight encoding, stationary)
+        # operand_2: EOM + DAC (input encoding, streamed per vector)
+        operand_1: [i8]
+        operand_2: [i0, i1]
+
+        laser_power_distribution: H
+
+        chip_mapping:
+          RF_EIC: [i1, i7, i4, i8, i2]  # DACs, TIA, micro-comb, DAC, ADC on electronic IC
+          PIC_1: [i0, i6]                # EOM and MRR_DOT on photonic chip 1
+          PIC_2: [i5, i3]                # Laser splitter and on-chip laser on photonic chip 2
+
+        insertion_loss_final_device: node
+
+      device_spacing_flag: null
+      node_spacing_flag: null
+      device_spacing: null
+      node_spacing: null
+
+      bounding_box_estimator: null
+      device_counter_function: null
+
+      node:
+        MRR_DOT:
+          version: v1
+          file: default
