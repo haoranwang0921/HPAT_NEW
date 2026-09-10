@@ -1,0 +1,71 @@
+{
+  "model": "MobileViT-XS",
+  "timm_model": "mobilevit_xs",
+  "input_shape": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "total_operators": 582,
+  "parameter_count": 2317848,
+  "trace_model": "actual_aten_producer_dag",
+  "captured_precision": "fp32",
+  "simulated_bits": 8,
+  "seed": 20260706,
+  "pretrained": false,
+  "purpose": "shape/cost trace; no accuracy or nonideality claim",
+  "decomposed_attention_modules": [
+    "stages.2.1.transformer.0.attn",
+    "stages.2.1.transformer.1.attn",
+    "stages.3.1.transformer.0.attn",
+    "stages.3.1.transformer.1.attn",
+    "stages.3.1.transformer.2.attn",
+    "stages.3.1.transformer.3.attn",
+    "stages.4.1.transformer.0.attn",
+    "stages.4.1.transformer.1.attn",
+    "stages.4.1.transformer.2.attn"
+  ],
+  "capture_output_max_abs_error": 0.0,
+  "python": "3.11.5",
+  "torch": "2.10.0+cpu",
+  "timm": "1.0.25",
+  "aten_operator_counts": {
+    "aten.convolution.default": 35,
+    "aten.empty.memory_format": 32,
+    "aten.native_batch_norm.default": 32,
+    "aten.silu_.default": 25,
+    "aten.add.Tensor": 20,
+    "aten.view.default": 100,
+    "aten.transpose.int": 30,
+    "aten.clone.default": 45,
+    "aten._unsafe_view.default": 63,
+    "aten.native_layer_norm.default": 21,
+    "aten.t.default": 37,
+    "aten.addmm.default": 37,
+    "aten.permute.default": 9,
+    "aten.unbind.int": 9,
+    "aten.mul.Tensor": 9,
+    "aten.expand.default": 36,
+    "aten.bmm.default": 18,
+    "aten._softmax.default": 9,
+    "aten.silu.default": 9,
+    "aten.cat.default": 3,
+    "aten.upsample_bilinear2d.default": 2,
+    "aten.mean.dim": 1
+  },
+  "source_sha256": {
+    "reference\\mobilevit_operator_activity.csv": "0363f04e456c946bea5d8486f8a7f45b27d820ee9f9c5268ed807f4c9571d133",
+    "reference\\paper_v1.json": "d93bb9bbcd4b126dc4b8ecaa6037bab2c5d0701fa0be287970300269867a292a",
+    "vendor\\hpat_eval\\mobilevit_loader.py": "40982d1decf3a424dabe96c8f14a894ed0045f1f4fa3557b7ff14b59940443b7",
+    "vendor\\hpat_eval\\activity_trace.py": "272a897756a26f9173fad7222c39560b5b6c21c1be402fcd32488c9175e08621",
+    "trace.py": "0090966e797e04c5241b07198e453d00e31282450e08a9e9d5e0f78bb5c60b14"
+  },
+  "reference_comparison": {
+    "captured_macs": 772340288,
+    "reference_macs": 772340288,
+    "matching": true,
+    "differences": [],
+    "reference_is_not_a_timing_measurement": true
+  }
+}

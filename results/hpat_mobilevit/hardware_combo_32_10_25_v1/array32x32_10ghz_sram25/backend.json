@@ -1,0 +1,296 @@
+{
+  "architecture": {
+    "pic_area_um2": 1349120.0,
+    "rf_eic_area_um2": 4709355.52,
+    "total_area_um2": 6327275.52,
+    "core_insertion_loss_db": 6.500000000000002,
+    "laser_wall_plug_power_w": 2.5714461256776895,
+    "mrr_count": 4096,
+    "pd_count": 128,
+    "dac_count": 256,
+    "adc_count": 128
+  },
+  "static_power_w": {
+    "photonic_periphery_static": 0.0,
+    "laser_static": 2.5714461256776895,
+    "mrr_hold": 0.4096
+  },
+  "laser_initializer_reference_w": 2.3898760288768113,
+  "laser_accounting_source": "architecture_cost API (MZM extinction, total row fanout)",
+  "programming": {
+    "tile_count": 4,
+    "programmed_mrr_count": 4096,
+    "programming_latency_s": 1.0000000000000002e-06,
+    "programming_energy_j": 3.80928e-07,
+    "hold_power_w": 0.4096
+  },
+  "resolved_architecture": {
+    "memory": {
+      "HBM": {
+        "read_energy": 62.4,
+        "write_energy": 62.4,
+        "bandwidth": 1024
+      },
+      "GLB2": {
+        "cache_size": 485,
+        "block_size": 8,
+        "config_file_name": "GLB2.cfg",
+        "output_file_name": "GLB2Report.txt"
+      },
+      "GLB1": {
+        "cache_size": 485,
+        "block_size": 8,
+        "config_file_name": "GLB1.cfg",
+        "output_file_name": "GLB1Report.txt"
+      },
+      "RF": {
+        "cache_size": 485,
+        "block_size": 8,
+        "config_file_name": "RF.cfg",
+        "output_file_name": "RFReport.txt"
+      }
+    },
+    "tiles": 2,
+    "cores_per_tile": 2,
+    "dataflow": "weight_stationary",
+    "op_type": "MVM",
+    "core": {
+      "type": "MicroRingArray",
+      "coherent": false,
+      "universal": true,
+      "forward": "direct",
+      "range": {
+        "weight": "positive",
+        "input": "positive",
+        "output": "positive"
+      },
+      "width": 32,
+      "height": 32,
+      "num_wavelength": 32,
+      "work_freq": 10,
+      "precision": {
+        "in_bit": 8,
+        "w_bit": 8,
+        "out_bit": 8
+      },
+      "netlist": {
+        "instances": {
+          "i0": [
+            "mzm",
+            0
+          ],
+          "i1": [
+            "dac",
+            0
+          ],
+          "i2": [
+            "adc",
+            0
+          ],
+          "i3": [
+            "on_chip_laser",
+            0
+          ],
+          "i4": [
+            "micro_comb",
+            0
+          ],
+          "i5": [
+            "laser_splitter",
+            0
+          ],
+          "i6": [
+            "node",
+            0
+          ],
+          "i7": [
+            "tia",
+            0
+          ],
+          "i8": [
+            "dac",
+            0
+          ]
+        },
+        "scaling_rules": {
+          "i0": "N*R*C",
+          "i1": "N*R*C",
+          "i2": "H*R*C",
+          "i3": 1,
+          "i4": 1,
+          "i5": "H*R*C",
+          "i6": "H*R*C",
+          "i7": "H*R*C",
+          "i8": "W*R*C"
+        },
+        "nets": {
+          "n0": [
+            "i3",
+            "i4"
+          ],
+          "n1": [
+            "i4",
+            "i0"
+          ],
+          "n2": [
+            "i0",
+            "i5(s)"
+          ],
+          "n3": [
+            "i5(e)",
+            "i6"
+          ],
+          "n4": [
+            "i6",
+            "i7"
+          ],
+          "n5": [
+            "i7",
+            "i2"
+          ],
+          "n6": [
+            "i1",
+            "i0"
+          ]
+        },
+        "replication": null,
+        "ports_num": null,
+        "operand_1": [
+          "i8"
+        ],
+        "operand_2": [
+          "i0",
+          "i1"
+        ],
+        "laser_power_distribution": "H*R*C",
+        "chip_mapping": {
+          "RF_EIC": [
+            "i1",
+            "i7",
+            "i4",
+            "i8",
+            "i2"
+          ],
+          "PIC_1": [
+            "i0",
+            "i6"
+          ],
+          "PIC_2": [
+            "i5",
+            "i3"
+          ]
+        },
+        "insertion_loss_final_device": "node"
+      },
+      "device_spacing_flag": null,
+      "node_spacing_flag": null,
+      "device_spacing": null,
+      "node_spacing": null,
+      "bounding_box_estimator": null,
+      "device_counter_function": null,
+      "node": {
+        "netlist": {
+          "instances": {
+            "i0": [
+              "mrr_weight",
+              0
+            ],
+            "i1": [
+              "photodetector",
+              0
+            ]
+          },
+          "replication": {
+            "i0": "N"
+          },
+          "scaling_rules": {
+            "i0": "H*R*C*N",
+            "i1": "H*R*C"
+          },
+          "sharing_rules": null,
+          "nets": {
+            "n_last": [
+              "i0(e)",
+              "i1"
+            ]
+          },
+          "ports_num": null,
+          "operand_1": [
+            "i0"
+          ],
+          "operand_2": null,
+          "insertion_loss_final_device": "photodetector",
+          "chip_mapping": null
+        },
+        "node_count": "H*R*C",
+        "device_spacing_flag": true,
+        "node_spacing_flag": true,
+        "device_spacing": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "node_spacing": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "longest_path": null,
+        "bounding_box_area": null,
+        "bounding_box_estimator": null,
+        "device_counter_function": null,
+        "version": "v1",
+        "name": "MRR_DOT",
+        "devices": {
+          "mrr_weight": [
+            "HPAT_MRR"
+          ],
+          "photodetector": [
+            "LT_PD"
+          ]
+        }
+      },
+      "version": "v1",
+      "name": "PDPU",
+      "devices": {
+        "mzm": [
+          "LT_MZM"
+        ],
+        "dac": [
+          "DAC_2"
+        ],
+        "adc": [
+          "ADC_SAR_1"
+        ],
+        "tia": [
+          "TIA_1"
+        ],
+        "micro_comb": [
+          "LT_Micro_Comb"
+        ],
+        "on_chip_laser": [
+          "Customized_Laser"
+        ],
+        "laser_splitter": [
+          "Customized_Laser_Splitter"
+        ]
+      }
+    },
+    "version": "v1",
+    "name": "HPAT"
+  },
+  "electronic_energy": {
+    "matmul_energy_per_mac_j": 4e-13,
+    "vector_energy_per_op_j": 9e-13,
+    "sram_energy_per_byte_j": 3.7e-12,
+    "hbm_energy_per_byte_j": 1e-10,
+    "noc_energy_per_byte_j": 2e-12,
+    "static_power_w": 0.3,
+    "process_node": "7nm",
+    "voltage_v": 0.7
+  },
+  "kernel_scope": "one_physical_core",
+  "physical_cores": 4
+}

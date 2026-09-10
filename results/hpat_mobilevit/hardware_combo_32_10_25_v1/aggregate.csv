@@ -1,0 +1,9 @@
+run_id,model,mode,axis,sweep_value,frame,state,latency_ms,energy_mj,sram_hit_rate,programming_events,point,average_power_w,photonic_area_mm2
+base_digital,MobileViT-XXS,digital,main,nominal,0,cold,1.542014252999544,2.9969802695001513,0.0,0,base,1.9435490065480203,0
+base_digital,MobileViT-XXS,digital,main,nominal,1,warm,0.7648592530019143,2.66125234230065,0.7402851005662956,0,base,3.479401382484144,0
+base_linear_pointwise_attention,MobileViT-XXS,linear_pointwise_attention,main,nominal,0,cold,2.3279128698004774,6.766525529127698,0.0,9810,base,2.906691920006288,3.82216576
+base_linear_pointwise_attention,MobileViT-XXS,linear_pointwise_attention,main,nominal,1,warm,1.5507578698025688,5.65993519884554,0.7402851005662956,9810,base,3.649786539252657,3.82216576
+array32x32_10ghz_sram25_digital,MobileViT-XXS,digital,main,nominal,0,cold,1.542014252999544,2.9969802695001513,0.0,0,array32x32_10ghz_sram25,1.9435490065480203,0
+array32x32_10ghz_sram25_digital,MobileViT-XXS,digital,main,nominal,1,warm,0.49220925300122625,2.543468606300368,1.0,0,array32x32_10ghz_sram25,5.167453863964705,0
+array32x32_10ghz_sram25_linear_pointwise_attention,MobileViT-XXS,linear_pointwise_attention,main,nominal,0,cold,1.8493475730498765,9.414812142935371,0.0,2909,array32x32_10ghz_sram25,5.090883012006665,6.32727552
+array32x32_10ghz_sram25_linear_pointwise_attention,MobileViT-XXS,linear_pointwise_attention,main,nominal,1,warm,0.7995425730519088,5.831783351774702,1.0,2909,array32x32_10ghz_sram25,7.2938997225806075,6.32727552

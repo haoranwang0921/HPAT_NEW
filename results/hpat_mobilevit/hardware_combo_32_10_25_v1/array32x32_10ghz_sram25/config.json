@@ -1,0 +1,144 @@
+{
+  "schema_version": "hpat-joint-v1",
+  "user_confirmed": {
+    "date": "2026-09-06",
+    "physical_array": [
+      32,
+      32
+    ],
+    "tiles": 2,
+    "cores_per_tile": 2,
+    "mapping_modes": [
+      "digital",
+      "linear",
+      "linear_pointwise",
+      "linear_pointwise_attention"
+    ],
+    "program_response_time_s": 1e-11,
+    "program_response_scope": "entire_16x16_physical_array_written_and_settled",
+    "program_energy_policy": "same_energy_per_write_as_previous_1us_configuration",
+    "resolutions": {
+      "xxs": 192,
+      "xs": 224,
+      "s": 256
+    },
+    "batch_size": 1,
+    "electronic_profile": "mobile_reference_10tops",
+    "signed_mapping": "row_pair_digital_two_input_passes",
+    "cost_and_memory_sweeps": true
+  },
+  "model_assumptions": {
+    "bits": 8,
+    "accumulator_bits": 32,
+    "core_frequency_ghz": 10,
+    "sram_capacity_bytes": 26214400,
+    "activation_scratchpad_bytes": 8388608,
+    "hbm_bandwidth_bytes_per_s": 64000000000.0,
+    "sram_bandwidth_bytes_per_s": 256000000000.0,
+    "dma_fixed_latency_s": 1e-07,
+    "program_parallelism": 4,
+    "program_energy_multiplier": 100000.0,
+    "electronic_peak_flops": 10000000000000.0,
+    "vector_peak_fraction": 0.1,
+    "signed_mapping": "row_pair_digital_two_input_passes",
+    "activation_memory_policy": "explicit_spill_between_materialized_ops",
+    "static_power_policy": "all_present_domains_on_for_entire_inference",
+    "operator_dispatch": "in_order_with_within_operator_tile_parallelism",
+    "inferences_per_run": 2,
+    "numerical_evidence": "fp32_trace_only_not_quantized_accuracy",
+    "electronic_peak_ops_per_s": 10000000000000.0,
+    "electronic_compute_utilization": 1.0,
+    "electronic_effective_ops_per_s": 10000000000000.0,
+    "electronic_operations_per_mac": 2,
+    "electronic_matrix_precision": "dense_int8_int32_accumulation_cost_only",
+    "external_memory_type": "LPDDR5X_class_abstract_DRAM",
+    "electronic_energy_overrides": {
+      "static_power_w": 0.3,
+      "hbm_energy_per_byte_j": 1e-10
+    },
+    "electronic_io_compute_overlap": false,
+    "activity_gated_static": false,
+    "reduce_compute_overlap": false,
+    "accumulator_residency": false,
+    "dma_batch_fetch": false,
+    "electronic_idle_power_fraction": 0.1,
+    "laser_standby_power_fraction": 0.0,
+    "weight_cache_block_shape": [
+      16,
+      8
+    ]
+  },
+  "sweeps": {},
+  "scope": "Uncalibrated mobile-class architecture reference, not a named phone or measured NPU. Dense INT8, 1 MAC=2 operations; no sparsity or utilization gain. Same profile for D0 and hybrid residuals. 10 ps whole-array writes at unchanged event energy. Memory, vector and power assumptions require calibration.",
+  "mobile_reference": {
+    "profile_kind": "mobile_reference",
+    "dense_int8_tops": 10,
+    "source_specification": {
+      "schema_version": "mobile-reference-v1",
+      "base_config": "config_10ps_fixed_write_energy.json",
+      "user_confirmed": {
+        "date": "2026-09-06",
+        "main_dense_int8_tops": 10,
+        "comparison_dense_int8_tops": [
+          20,
+          35
+        ],
+        "device_claim": "generic_mobile_class_reference_not_a_measured_phone"
+      },
+      "profiles": [
+        "mobile_reference",
+        "compute_only_control"
+      ],
+      "operations_per_mac": 2,
+      "matrix_precision": "dense_int8_int32_accumulation_cost_only",
+      "compute_utilization": 1.0,
+      "mobile_assumptions": {
+        "external_memory_type": "LPDDR5X_class_abstract_DRAM",
+        "external_memory_bandwidth_bytes_per_s": 64000000000.0,
+        "scratchpad_bandwidth_bytes_per_s": 256000000000.0,
+        "electronic_static_power_w": 0.3,
+        "external_memory_energy_per_byte_j": 1e-10,
+        "vector_peak_fraction": 0.1
+      },
+      "retained_uncalibrated_parameters": {
+        "matmul_energy_per_mac_j": 4e-13,
+        "vector_energy_per_op_j": 9e-13,
+        "sram_energy_per_byte_j": 3.7e-12,
+        "noc_energy_per_byte_j": 2e-12,
+        "weight_sram_bytes": 1048576,
+        "separate_activation_scratchpad_bytes": 8388608,
+        "dma_fixed_latency_s": 1e-07
+      },
+      "sources": [
+        {
+          "url": "https://developer.arm.com/community/arm-community-blogs/b/architectures-and-processors-blog/posts/arm-ethos-n78-npu",
+          "accessed": "2026-09-06",
+          "supports": "Ethos-N78 scalable 1-10 TOP/s; mobile/edge NPU class reference, not a specific phone."
+        },
+        {
+          "url": "https://developer.arm.com/-/media/Arm%20Developer%20Community/PDF/AI-ML%20Datasheet%20and%20briefs/Arm%20Ethos-N78%20Product%20Brief-%20May%202020.pdf?hash=044FDEC0F7D79BC399FEE62D5979A5A0&revision=3018a430-b710-4efd-a69b-350e3ce9dd8f",
+          "accessed": "2026-09-06",
+          "supports": "8x8 MAC/cycle, INT8/INT16, embedded SRAM 384 KB-4 MB. Our separate 8 MiB scratchpad is NOT claimed as Ethos-N78 SRAM."
+        },
+        {
+          "url": "https://www.micron.com/products/memory/lpddr-components/lpddr5x/part-catalog",
+          "accessed": "2026-09-06",
+          "supports": "8533 MT/s x64 parts imply 68.264 GB/s theoretical package bandwidth. Chosen 64 GB/s is an abstract available-bandwidth assumption, not a measured NPU allocation."
+        }
+      ],
+      "limitations": [
+        "20/35 TOPS are user-selected compute-scale comparisons, not calibrated named SoCs.",
+        "1 MAC = 2 operations; TOPS denotes dense integer operations, not floating-point FLOPS or sparse effective TOPS.",
+        "Matrix utilization stays at the previous ideal value 1.0; no speed-target fitting.",
+        "Vector throughput, 0.3 W static power, 100 pJ/byte DRAM energy, and 256 GB/s scratchpad bus are uncalibrated assumptions.",
+        "Same electronic and memory profile is used by D0 and all hybrid modes. Photonic core parameters do not change.",
+        "NPU operator support, CPU fallback, real driver/runtime, graph fusion, DRAM burst merging, thermal throttling, and transient writing power are not modeled.",
+        "Historical engine fields hbm and electronic_peak_flops are compatibility aliases for external-DRAM events and effective operations/s. Canonical units are recorded separately."
+      ]
+    },
+    "compatibility_aliases": {
+      "electronic_peak_flops": "effective integer operations/s",
+      "hbm": "external-DRAM accounting resource, not HBM hardware"
+    }
+  }
+}

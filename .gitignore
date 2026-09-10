@@ -1,0 +1,22 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# ---- LLMCompass 运行时临时目录（自动生成，仓库不需要）----
+LLMCompass/systolic_array_model/temp/
+
+# ---- 临时与编辑器 / OS ----
+*.tmp
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# ---- 说明 ----
+# results/ 下并非全部是产物：
+#   results/hpat_mobilevit/trace_v1/                 ← 实验输入（MobileViT 形状 trace）
+#   results/hpat_mobilevit/hardware_combo_32_10_25_v1/ ← 实验输入（P0 冻结点）
+# 这两项必须入库，否则任何 runner 都无法运行。详见 results/hpat_mobilevit/README.md

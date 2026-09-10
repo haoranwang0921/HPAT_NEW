@@ -1,0 +1,5 @@
+run_id,model,mode,axis,sweep_value,frame,state,latency_ms,energy_mj,sram_hit_rate,programming_events,point,average_power_w,photonic_area_mm2,latency_change_percent,energy_change_percent
+base_digital,MobileViT-XXS,digital,main,nominal,1,warm,0.7648592530019143,2.66125234230065,0.7402851005662956,0,base,3.479401382484144,0,0.0,0.0
+base_linear_pointwise_attention,MobileViT-XXS,linear_pointwise_attention,main,nominal,1,warm,1.5507578698025688,5.65993519884554,0.7402851005662956,9810,base,3.649786539252657,3.82216576,0.0,0.0
+array32x32_10ghz_sram25_digital,MobileViT-XXS,digital,main,nominal,1,warm,0.49220925300122625,2.543468606300368,1.0,0,array32x32_10ghz_sram25,5.167453863964705,0,-35.647081333015606,-4.42587627366664
+array32x32_10ghz_sram25_linear_pointwise_attention,MobileViT-XXS,linear_pointwise_attention,main,nominal,1,warm,0.7995425730519088,5.831783351774702,1.0,2909,array32x32_10ghz_sram25,7.2938997225806075,6.32727552,-48.441817473820024,3.0362212091088026

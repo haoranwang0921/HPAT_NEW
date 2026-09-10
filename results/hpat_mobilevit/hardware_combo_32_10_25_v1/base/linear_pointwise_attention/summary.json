@@ -1,0 +1,317 @@
+{
+  "mode": "linear_pointwise_attention",
+  "frames": [
+    {
+      "frame": 0,
+      "state": "cold",
+      "latency_s": 0.0023279128698004774,
+      "energy_j": 0.006766525529127698,
+      "energy_breakdown_j": {
+        "hbm": 0.0024018696000002848,
+        "sram_noc": 0.0007908932856001083,
+        "electronic_dynamic": 6.061754879999999e-05,
+        "view_metadata": 0.0,
+        "programming": 0.00024252562285711796,
+        "dac_encode": 0.0,
+        "optical_compute": 0.00023310191999994235,
+        "adc_convert": 0.0,
+        "signed_reduce": 3.0079850399999505e-05,
+        "electronic_static": 0.0006983738609401432,
+        "photonic_periphery_static": 0.0,
+        "laser_static": 0.002070685562662533,
+        "mrr_hold": 0.0002383782778675689
+      },
+      "event_counts": {
+        "hbm": 10772,
+        "sram_noc": 52694,
+        "electronic_dynamic": 189,
+        "view_metadata": 316,
+        "programming": 9810,
+        "dac_encode": 9810,
+        "optical_compute": 9810,
+        "adc_convert": 9810,
+        "signed_reduce": 9810
+      },
+      "sram_hits": 0,
+      "sram_misses": 10242,
+      "sram_hit_rate": 0.0
+    },
+    {
+      "frame": 1,
+      "state": "warm",
+      "latency_s": 0.0015507578698025688,
+      "energy_j": 0.00565993519884554,
+      "energy_breakdown_j": {
+        "hbm": 0.0023048200000000693,
+        "sram_noc": 0.0007853614584003235,
+        "electronic_dynamic": 6.061754879999987e-05,
+        "view_metadata": 0.0,
+        "programming": 0.00024252562285737811,
+        "dac_encode": 0.0,
+        "optical_compute": 0.00023310191999993075,
+        "adc_convert": 0.0,
+        "signed_reduce": 3.0079850400010394e-05,
+        "electronic_static": 0.0004652273609407706,
+        "photonic_periphery_static": 0.0,
+        "laser_static": 0.0013794038315792746,
+        "mrr_hold": 0.00015879760586778304
+      },
+      "event_counts": {
+        "hbm": 3190,
+        "sram_noc": 45112,
+        "electronic_dynamic": 189,
+        "view_metadata": 316,
+        "programming": 9810,
+        "dac_encode": 9810,
+        "optical_compute": 9810,
+        "adc_convert": 9810,
+        "signed_reduce": 9810
+      },
+      "sram_hits": 7582,
+      "sram_misses": 2660,
+      "sram_hit_rate": 0.7402851005662956
+    }
+  ],
+  "scratchpad_peak_bytes": 1622016,
+  "sram": {
+    "hits": 7582,
+    "misses": 12902,
+    "evictions": 4710,
+    "dma_latency_s": 0.0013160040000001517,
+    "dma_bytes": 1651456,
+    "cold_misses": 12902,
+    "hit_rate": 0.3701425502831478,
+    "capacity_tiles": 8192,
+    "capacity_bytes": 1048576,
+    "occupied": 8192,
+    "policy": "lru"
+  },
+  "total_events": 210878,
+  "checks": {
+    "resource_nonoverlap": true,
+    "dag_dependencies": true,
+    "physical_core_write_compute_exclusion": true,
+    "sram_capacity": true,
+    "scratchpad_capacity": true,
+    "end_time_matches_events": true
+  },
+  "model_scope": "nominal event-level architecture model; no silicon or quantized accuracy claim",
+  "run_id": "base_linear_pointwise_attention",
+  "model": "MobileViT-XXS",
+  "axis": "main",
+  "sweep_value": "nominal",
+  "effective_config": {
+    "schema_version": "hpat-joint-v1",
+    "user_confirmed": {
+      "date": "2026-09-06",
+      "physical_array": [
+        16,
+        16
+      ],
+      "tiles": 2,
+      "cores_per_tile": 2,
+      "mapping_modes": [
+        "digital",
+        "linear",
+        "linear_pointwise",
+        "linear_pointwise_attention"
+      ],
+      "program_response_time_s": 1e-11,
+      "program_response_scope": "entire_16x16_physical_array_written_and_settled",
+      "program_energy_policy": "same_energy_per_write_as_previous_1us_configuration",
+      "resolutions": {
+        "xxs": 192,
+        "xs": 224,
+        "s": 256
+      },
+      "batch_size": 1,
+      "electronic_profile": "mobile_reference_10tops",
+      "signed_mapping": "row_pair_digital_two_input_passes",
+      "cost_and_memory_sweeps": true
+    },
+    "model_assumptions": {
+      "bits": 8,
+      "accumulator_bits": 32,
+      "core_frequency_ghz": 5.0,
+      "sram_capacity_bytes": 1048576,
+      "activation_scratchpad_bytes": 8388608,
+      "hbm_bandwidth_bytes_per_s": 64000000000.0,
+      "sram_bandwidth_bytes_per_s": 256000000000.0,
+      "dma_fixed_latency_s": 1e-07,
+      "program_parallelism": 4,
+      "program_energy_multiplier": 100000.0,
+      "electronic_peak_flops": 10000000000000.0,
+      "vector_peak_fraction": 0.1,
+      "signed_mapping": "row_pair_digital_two_input_passes",
+      "activation_memory_policy": "explicit_spill_between_materialized_ops",
+      "static_power_policy": "all_present_domains_on_for_entire_inference",
+      "operator_dispatch": "in_order_with_within_operator_tile_parallelism",
+      "inferences_per_run": 2,
+      "numerical_evidence": "fp32_trace_only_not_quantized_accuracy",
+      "electronic_peak_ops_per_s": 10000000000000.0,
+      "electronic_compute_utilization": 1.0,
+      "electronic_effective_ops_per_s": 10000000000000.0,
+      "electronic_operations_per_mac": 2,
+      "electronic_matrix_precision": "dense_int8_int32_accumulation_cost_only",
+      "external_memory_type": "LPDDR5X_class_abstract_DRAM",
+      "electronic_energy_overrides": {
+        "static_power_w": 0.3,
+        "hbm_energy_per_byte_j": 1e-10
+      },
+      "electronic_io_compute_overlap": false,
+      "activity_gated_static": false,
+      "reduce_compute_overlap": false,
+      "accumulator_residency": false,
+      "dma_batch_fetch": false,
+      "electronic_idle_power_fraction": 0.1,
+      "laser_standby_power_fraction": 0.0,
+      "weight_cache_block_shape": [
+        16,
+        8
+      ]
+    },
+    "sweeps": {},
+    "scope": "Uncalibrated mobile-class architecture reference, not a named phone or measured NPU. Dense INT8, 1 MAC=2 operations; no sparsity or utilization gain. Same profile for D0 and hybrid residuals. 10 ps whole-array writes at unchanged event energy. Memory, vector and power assumptions require calibration.",
+    "mobile_reference": {
+      "profile_kind": "mobile_reference",
+      "dense_int8_tops": 10,
+      "source_specification": {
+        "schema_version": "mobile-reference-v1",
+        "base_config": "config_10ps_fixed_write_energy.json",
+        "user_confirmed": {
+          "date": "2026-09-06",
+          "main_dense_int8_tops": 10,
+          "comparison_dense_int8_tops": [
+            20,
+            35
+          ],
+          "device_claim": "generic_mobile_class_reference_not_a_measured_phone"
+        },
+        "profiles": [
+          "mobile_reference",
+          "compute_only_control"
+        ],
+        "operations_per_mac": 2,
+        "matrix_precision": "dense_int8_int32_accumulation_cost_only",
+        "compute_utilization": 1.0,
+        "mobile_assumptions": {
+          "external_memory_type": "LPDDR5X_class_abstract_DRAM",
+          "external_memory_bandwidth_bytes_per_s": 64000000000.0,
+          "scratchpad_bandwidth_bytes_per_s": 256000000000.0,
+          "electronic_static_power_w": 0.3,
+          "external_memory_energy_per_byte_j": 1e-10,
+          "vector_peak_fraction": 0.1
+        },
+        "retained_uncalibrated_parameters": {
+          "matmul_energy_per_mac_j": 4e-13,
+          "vector_energy_per_op_j": 9e-13,
+          "sram_energy_per_byte_j": 3.7e-12,
+          "noc_energy_per_byte_j": 2e-12,
+          "weight_sram_bytes": 1048576,
+          "separate_activation_scratchpad_bytes": 8388608,
+          "dma_fixed_latency_s": 1e-07
+        },
+        "sources": [
+          {
+            "url": "https://developer.arm.com/community/arm-community-blogs/b/architectures-and-processors-blog/posts/arm-ethos-n78-npu",
+            "accessed": "2026-09-06",
+            "supports": "Ethos-N78 scalable 1-10 TOP/s; mobile/edge NPU class reference, not a specific phone."
+          },
+          {
+            "url": "https://developer.arm.com/-/media/Arm%20Developer%20Community/PDF/AI-ML%20Datasheet%20and%20briefs/Arm%20Ethos-N78%20Product%20Brief-%20May%202020.pdf?hash=044FDEC0F7D79BC399FEE62D5979A5A0&revision=3018a430-b710-4efd-a69b-350e3ce9dd8f",
+            "accessed": "2026-09-06",
+            "supports": "8x8 MAC/cycle, INT8/INT16, embedded SRAM 384 KB-4 MB. Our separate 8 MiB scratchpad is NOT claimed as Ethos-N78 SRAM."
+          },
+          {
+            "url": "https://www.micron.com/products/memory/lpddr-components/lpddr5x/part-catalog",
+            "accessed": "2026-09-06",
+            "supports": "8533 MT/s x64 parts imply 68.264 GB/s theoretical package bandwidth. Chosen 64 GB/s is an abstract available-bandwidth assumption, not a measured NPU allocation."
+          }
+        ],
+        "limitations": [
+          "20/35 TOPS are user-selected compute-scale comparisons, not calibrated named SoCs.",
+          "1 MAC = 2 operations; TOPS denotes dense integer operations, not floating-point FLOPS or sparse effective TOPS.",
+          "Matrix utilization stays at the previous ideal value 1.0; no speed-target fitting.",
+          "Vector throughput, 0.3 W static power, 100 pJ/byte DRAM energy, and 256 GB/s scratchpad bus are uncalibrated assumptions.",
+          "Same electronic and memory profile is used by D0 and all hybrid modes. Photonic core parameters do not change.",
+          "NPU operator support, CPU fallback, real driver/runtime, graph fusion, DRAM burst merging, thermal throttling, and transient writing power are not modeled.",
+          "Historical engine fields hbm and electronic_peak_flops are compatibility aliases for external-DRAM events and effective operations/s. Canonical units are recorded separately."
+        ]
+      },
+      "compatibility_aliases": {
+        "electronic_peak_flops": "effective integer operations/s",
+        "hbm": "external-DRAM accounting resource, not HBM hardware"
+      }
+    }
+  },
+  "trace_manifest": {
+    "model": "MobileViT-XXS",
+    "timm_model": "mobilevit_xxs",
+    "input_shape": [
+      1,
+      3,
+      192,
+      192
+    ],
+    "total_operators": 581,
+    "parameter_count": 1272024,
+    "trace_model": "actual_aten_producer_dag",
+    "captured_precision": "fp32",
+    "simulated_bits": 8,
+    "seed": 20260706,
+    "pretrained": false,
+    "purpose": "shape/cost trace; no accuracy or nonideality claim",
+    "decomposed_attention_modules": [
+      "stages.2.1.transformer.0.attn",
+      "stages.2.1.transformer.1.attn",
+      "stages.3.1.transformer.0.attn",
+      "stages.3.1.transformer.1.attn",
+      "stages.3.1.transformer.2.attn",
+      "stages.3.1.transformer.3.attn",
+      "stages.4.1.transformer.0.attn",
+      "stages.4.1.transformer.1.attn",
+      "stages.4.1.transformer.2.attn"
+    ],
+    "capture_output_max_abs_error": 0.0,
+    "python": "3.11.5",
+    "torch": "2.10.0+cpu",
+    "timm": "1.0.25",
+    "aten_operator_counts": {
+      "aten.convolution.default": 35,
+      "aten.empty.memory_format": 32,
+      "aten.native_batch_norm.default": 32,
+      "aten.silu_.default": 25,
+      "aten.add.Tensor": 21,
+      "aten.view.default": 100,
+      "aten.transpose.int": 30,
+      "aten.clone.default": 45,
+      "aten._unsafe_view.default": 63,
+      "aten.native_layer_norm.default": 21,
+      "aten.t.default": 37,
+      "aten.addmm.default": 37,
+      "aten.permute.default": 9,
+      "aten.unbind.int": 9,
+      "aten.mul.Tensor": 9,
+      "aten.expand.default": 36,
+      "aten.bmm.default": 18,
+      "aten._softmax.default": 9,
+      "aten.silu.default": 9,
+      "aten.cat.default": 3,
+      "aten.mean.dim": 1
+    },
+    "source_sha256": {
+      "reference\\mobilevit_operator_activity.csv": "0363f04e456c946bea5d8486f8a7f45b27d820ee9f9c5268ed807f4c9571d133",
+      "reference\\paper_v1.json": "d93bb9bbcd4b126dc4b8ecaa6037bab2c5d0701fa0be287970300269867a292a",
+      "vendor\\hpat_eval\\mobilevit_loader.py": "40982d1decf3a424dabe96c8f14a894ed0045f1f4fa3557b7ff14b59940443b7",
+      "vendor\\hpat_eval\\activity_trace.py": "272a897756a26f9173fad7222c39560b5b6c21c1be402fcd32488c9175e08621",
+      "trace.py": "0090966e797e04c5241b07198e453d00e31282450e08a9e9d5e0f78bb5c60b14"
+    },
+    "reference_comparison": {
+      "captured_macs": 210041600,
+      "reference_macs": 210041600,
+      "matching": true,
+      "differences": [],
+      "reference_is_not_a_timing_measurement": true
+    }
+  }
+}

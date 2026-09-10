@@ -1,0 +1,26 @@
+{
+  "valid": true,
+  "cases": [
+    {
+      "run_id": "base_digital",
+      "events": 48510,
+      "timeline_sha256": "4ed5c468d48b93b98a7ac0134425549137ab25ba02cc40aeb1177934e846bb3a"
+    },
+    {
+      "run_id": "base_linear_pointwise_attention",
+      "events": 210878,
+      "timeline_sha256": "9a8a6f108d44fe6a854e6ce37919edd921fd0e42d68dfce7e1a61ef7568f70e6"
+    },
+    {
+      "run_id": "array32x32_10ghz_sram25_digital",
+      "events": 43190,
+      "timeline_sha256": "22f1e09f3fc93f3b984f608cd1e8562a76e71285a87bf0590e2f921d59a823a9"
+    },
+    {
+      "run_id": "array32x32_10ghz_sram25_linear_pointwise_attention",
+      "events": 91814,
+      "timeline_sha256": "068995908d2a440386275300c76ebf0bd1a1526b9b8e4a2915d32d1965d2545d"
+    }
+  ],
+  "d0_invariant_to_optical_parameters": true
+}

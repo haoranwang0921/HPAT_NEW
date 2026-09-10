@@ -21,6 +21,12 @@
 以下为已归档的 1 μs 完整实验产物，后文建模说明和旧复现命令也对应此版本：
 
 - `results/hpat_mobilevit/trace_v1/`：三模型真实 ATen 生产者 DAG。
+- `results/hpat_mobilevit/hardware_combo_32_10_25_v1/`：冻结 P0 主点（32×32 / 10 GHz / 25 MiB）的配置与扫描产物。
+
+> ⚠️ 上述**两项是「实验输入」而非运行产物**，已入库；缺失时任何 runner 都会立即失败。
+> 其生成命令、manifest 元数据、引用者清单与复现步骤见
+> [`results/hpat_mobilevit/README.md`](../../results/hpat_mobilevit/README.md)。
+
 - `results/hpat_mobilevit/experiments_v2/`：240 组完整配置、720 个推理帧；
   主结果、所有扫描、原始参数、成本缓存和来源指纹。
 - `results/hpat_mobilevit/experiments_v2/verification.json`：独立核验报告。

@@ -1,0 +1,3 @@
+run_id,model,mode,axis,sweep_value,frame,state,latency_ms,energy_mj,sram_hit_rate,programming_events
+array32x32_10ghz_sram25_linear_pointwise_attention,MobileViT-XXS,linear_pointwise_attention,main,nominal,0,cold,1.8493475730498765,9.414812142935371,0.0,2909
+array32x32_10ghz_sram25_linear_pointwise_attention,MobileViT-XXS,linear_pointwise_attention,main,nominal,1,warm,0.7995425730519088,5.831783351774702,1.0,2909

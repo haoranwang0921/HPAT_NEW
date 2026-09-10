@@ -1,0 +1,3 @@
+run_id,model,mode,axis,sweep_value,frame,state,latency_ms,energy_mj,sram_hit_rate,programming_events
+base_linear_pointwise_attention,MobileViT-XXS,linear_pointwise_attention,main,nominal,0,cold,2.3279128698004774,6.766525529127698,0.0,9810
+base_linear_pointwise_attention,MobileViT-XXS,linear_pointwise_attention,main,nominal,1,warm,1.5507578698025688,5.65993519884554,0.7402851005662956,9810
