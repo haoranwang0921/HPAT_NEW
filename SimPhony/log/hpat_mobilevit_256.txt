@@ -1,0 +1,865 @@
+2026-07-20 13:26:43,158 - simulator.py[line:383] - INFO: 
+============================================================================================
+                                Simphony: ONN Arch Simulator v0.0.1
+                                    Ziang Yin
+                        Jiaqi Gu (https://scopex-asu.github.io)
+================================== Simulation Parameters ===================================
+
+nn_model: MobileViT
+onn_conversion_cfg: None
+nn_conversion_cfg: configs/nn_mapping/hpat_cnn.yml
+onn_model: None
+model2arch_map_cfg: configs/architecture_mapping/hpat_cnn.yml
+log_path: log/hpat_mobilevit_256.txt
+devicelib_root: configs/devices
+device_cfg_files: ['*/*.yml']
+arch_cfg_file: configs/design/architectures/HPAT_hetero.yml
+arch_version: v1
+input_shape: (1, 3, 256, 256)
+2026-07-20 13:26:43,193 - simulator.py[line:124] - WARNING: ONN model not provided
+2026-07-20 13:26:43,195 - utils.py[line:214] - INFO: Couldn't find the mapping for layer  (MobileViT) in the mapping config.
+2026-07-20 13:26:43,196 - utils.py[line:214] - INFO: Couldn't find the mapping for layer conv_stem (Sequential) in the mapping config.
+2026-07-20 13:26:43,196 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer conv_stem.0(Conv2d)
+2026-07-20 13:26:43,196 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer conv_stem.0(Conv2d)
+2026-07-20 13:26:43,196 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer conv_stem.0(Conv2d)
+2026-07-20 13:26:43,196 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer conv_stem.0(Conv2d)
+2026-07-20 13:26:43,196 - utils.py[line:214] - INFO: Couldn't find the mapping for layer conv_stem.1 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,196 - utils.py[line:214] - INFO: Couldn't find the mapping for layer conv_stem.2 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,196 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage2 (InvertedResidual) in the mapping config.
+2026-07-20 13:26:43,196 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage2.conv (Sequential) in the mapping config.
+2026-07-20 13:26:43,196 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage2.conv.0(Conv2d)
+2026-07-20 13:26:43,196 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage2.conv.0(Conv2d)
+2026-07-20 13:26:43,196 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage2.conv.0(Conv2d)
+2026-07-20 13:26:43,196 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage2.conv.0(Conv2d)
+2026-07-20 13:26:43,196 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage2.conv.1 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,196 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage2.conv.2 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,196 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage2.conv.3(Conv2d)
+2026-07-20 13:26:43,196 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage2.conv.3(Conv2d)
+2026-07-20 13:26:43,197 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage2.conv.3(Conv2d)
+2026-07-20 13:26:43,197 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage2.conv.3(Conv2d)
+2026-07-20 13:26:43,197 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage2.conv.4 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,197 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage2.conv.5 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,197 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage2.conv.6(Conv2d)
+2026-07-20 13:26:43,197 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage2.conv.6(Conv2d)
+2026-07-20 13:26:43,197 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage2.conv.6(Conv2d)
+2026-07-20 13:26:43,197 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage2.conv.6(Conv2d)
+2026-07-20 13:26:43,197 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage2.conv.7 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,197 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage3 (Sequential) in the mapping config.
+2026-07-20 13:26:43,197 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage3.0 (InvertedResidual) in the mapping config.
+2026-07-20 13:26:43,197 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage3.0.conv (Sequential) in the mapping config.
+2026-07-20 13:26:43,197 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage3.0.conv.0(Conv2d)
+2026-07-20 13:26:43,197 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage3.0.conv.0(Conv2d)
+2026-07-20 13:26:43,197 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage3.0.conv.0(Conv2d)
+2026-07-20 13:26:43,197 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage3.0.conv.0(Conv2d)
+2026-07-20 13:26:43,197 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage3.0.conv.1 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,197 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage3.0.conv.2 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,197 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage3.0.conv.3(Conv2d)
+2026-07-20 13:26:43,197 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage3.0.conv.3(Conv2d)
+2026-07-20 13:26:43,197 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage3.0.conv.3(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage3.0.conv.3(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage3.0.conv.4 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,198 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage3.0.conv.5 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage3.0.conv.6(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage3.0.conv.6(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage3.0.conv.6(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage3.0.conv.6(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage3.0.conv.7 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,198 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage3.1 (InvertedResidual) in the mapping config.
+2026-07-20 13:26:43,198 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage3.1.conv (Sequential) in the mapping config.
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage3.1.conv.0(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage3.1.conv.0(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage3.1.conv.0(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage3.1.conv.0(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage3.1.conv.1 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,198 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage3.1.conv.2 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage3.1.conv.3(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage3.1.conv.3(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage3.1.conv.3(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage3.1.conv.3(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage3.1.conv.4 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,198 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage3.1.conv.5 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage3.1.conv.6(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage3.1.conv.6(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage3.1.conv.6(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage3.1.conv.6(Conv2d)
+2026-07-20 13:26:43,198 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage3.1.conv.7 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,198 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage4 (InvertedResidual) in the mapping config.
+2026-07-20 13:26:43,198 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage4.conv (Sequential) in the mapping config.
+2026-07-20 13:26:43,199 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage4.conv.0(Conv2d)
+2026-07-20 13:26:43,199 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage4.conv.0(Conv2d)
+2026-07-20 13:26:43,199 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage4.conv.0(Conv2d)
+2026-07-20 13:26:43,199 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage4.conv.0(Conv2d)
+2026-07-20 13:26:43,199 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage4.conv.1 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,199 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage4.conv.2 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,199 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage4.conv.3(Conv2d)
+2026-07-20 13:26:43,199 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage4.conv.3(Conv2d)
+2026-07-20 13:26:43,199 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage4.conv.3(Conv2d)
+2026-07-20 13:26:43,199 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage4.conv.3(Conv2d)
+2026-07-20 13:26:43,199 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage4.conv.4 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,199 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage4.conv.5 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,199 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage4.conv.6(Conv2d)
+2026-07-20 13:26:43,199 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage4.conv.6(Conv2d)
+2026-07-20 13:26:43,199 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage4.conv.6(Conv2d)
+2026-07-20 13:26:43,199 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage4.conv.6(Conv2d)
+2026-07-20 13:26:43,199 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage4.conv.7 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,199 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5 (MobileViTBlock) in the mapping config.
+2026-07-20 13:26:43,199 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.conv1(Conv2d)
+2026-07-20 13:26:43,199 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.conv1(Conv2d)
+2026-07-20 13:26:43,199 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.conv1(Conv2d)
+2026-07-20 13:26:43,200 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.conv1(Conv2d)
+2026-07-20 13:26:43,200 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.bn1 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,200 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.act1 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,200 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.conv2(Conv2d)
+2026-07-20 13:26:43,200 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.conv2(Conv2d)
+2026-07-20 13:26:43,200 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.conv2(Conv2d)
+2026-07-20 13:26:43,200 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.conv2(Conv2d)
+2026-07-20 13:26:43,200 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.bn2 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,200 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.act2 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,200 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.transformer (Sequential) in the mapping config.
+2026-07-20 13:26:43,200 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.transformer.0 (TransformerLayer) in the mapping config.
+2026-07-20 13:26:43,200 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.transformer.0.norm1 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,200 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.transformer.0.attn (Attention) in the mapping config.
+2026-07-20 13:26:43,200 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.transformer.0.attn.qkv(Linear)
+2026-07-20 13:26:43,200 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.transformer.0.attn.qkv(Linear)
+2026-07-20 13:26:43,200 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.transformer.0.attn.qkv(Linear)
+2026-07-20 13:26:43,200 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.transformer.0.attn.qkv(Linear)
+2026-07-20 13:26:43,200 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.transformer.0.attn.proj(Linear)
+2026-07-20 13:26:43,201 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.transformer.0.attn.proj(Linear)
+2026-07-20 13:26:43,201 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.transformer.0.attn.proj(Linear)
+2026-07-20 13:26:43,201 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.transformer.0.attn.proj(Linear)
+2026-07-20 13:26:43,201 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.transformer.0.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,201 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.transformer.0.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,201 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.transformer.0.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,201 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.transformer.0.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,202 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.transformer.0.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,202 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.transformer.0.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,202 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.transformer.0.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,202 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.transformer.0.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,202 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.transformer.0.norm2 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,202 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.transformer.0.mlp (Sequential) in the mapping config.
+2026-07-20 13:26:43,202 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.transformer.0.mlp.0(Linear)
+2026-07-20 13:26:43,202 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.transformer.0.mlp.0(Linear)
+2026-07-20 13:26:43,202 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.transformer.0.mlp.0(Linear)
+2026-07-20 13:26:43,202 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.transformer.0.mlp.0(Linear)
+2026-07-20 13:26:43,202 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.transformer.0.mlp.1 (ReLU) in the mapping config.
+2026-07-20 13:26:43,202 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.transformer.0.mlp.2 (Dropout) in the mapping config.
+2026-07-20 13:26:43,202 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.transformer.0.mlp.3(Linear)
+2026-07-20 13:26:43,202 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.transformer.0.mlp.3(Linear)
+2026-07-20 13:26:43,202 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.transformer.0.mlp.3(Linear)
+2026-07-20 13:26:43,202 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.transformer.0.mlp.3(Linear)
+2026-07-20 13:26:43,202 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.transformer.1 (TransformerLayer) in the mapping config.
+2026-07-20 13:26:43,202 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.transformer.1.norm1 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,202 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.transformer.1.attn (Attention) in the mapping config.
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.transformer.1.attn.qkv(Linear)
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.transformer.1.attn.qkv(Linear)
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.transformer.1.attn.qkv(Linear)
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.transformer.1.attn.qkv(Linear)
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.transformer.1.attn.proj(Linear)
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.transformer.1.attn.proj(Linear)
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.transformer.1.attn.proj(Linear)
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.transformer.1.attn.proj(Linear)
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.transformer.1.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.transformer.1.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.transformer.1.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.transformer.1.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.transformer.1.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.transformer.1.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.transformer.1.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.transformer.1.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,203 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.transformer.1.norm2 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,203 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.transformer.1.mlp (Sequential) in the mapping config.
+2026-07-20 13:26:43,203 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.transformer.1.mlp.0(Linear)
+2026-07-20 13:26:43,204 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.transformer.1.mlp.0(Linear)
+2026-07-20 13:26:43,204 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.transformer.1.mlp.0(Linear)
+2026-07-20 13:26:43,204 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.transformer.1.mlp.0(Linear)
+2026-07-20 13:26:43,204 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.transformer.1.mlp.1 (ReLU) in the mapping config.
+2026-07-20 13:26:43,204 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.transformer.1.mlp.2 (Dropout) in the mapping config.
+2026-07-20 13:26:43,204 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.transformer.1.mlp.3(Linear)
+2026-07-20 13:26:43,204 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.transformer.1.mlp.3(Linear)
+2026-07-20 13:26:43,204 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.transformer.1.mlp.3(Linear)
+2026-07-20 13:26:43,204 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.transformer.1.mlp.3(Linear)
+2026-07-20 13:26:43,204 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.conv3(Conv2d)
+2026-07-20 13:26:43,204 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.conv3(Conv2d)
+2026-07-20 13:26:43,204 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.conv3(Conv2d)
+2026-07-20 13:26:43,204 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.conv3(Conv2d)
+2026-07-20 13:26:43,204 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.bn3 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,204 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.act3 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,204 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage5.conv4(Conv2d)
+2026-07-20 13:26:43,204 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage5.conv4(Conv2d)
+2026-07-20 13:26:43,204 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage5.conv4(Conv2d)
+2026-07-20 13:26:43,204 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage5.conv4(Conv2d)
+2026-07-20 13:26:43,204 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.bn4 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,205 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage5.act4 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,205 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage6 (InvertedResidual) in the mapping config.
+2026-07-20 13:26:43,205 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage6.conv (Sequential) in the mapping config.
+2026-07-20 13:26:43,205 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage6.conv.0(Conv2d)
+2026-07-20 13:26:43,205 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage6.conv.0(Conv2d)
+2026-07-20 13:26:43,205 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage6.conv.0(Conv2d)
+2026-07-20 13:26:43,205 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage6.conv.0(Conv2d)
+2026-07-20 13:26:43,205 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage6.conv.1 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,205 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage6.conv.2 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,205 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage6.conv.3(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage6.conv.3(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage6.conv.3(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage6.conv.3(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage6.conv.4 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,206 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage6.conv.5 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,206 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage6.conv.6(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage6.conv.6(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage6.conv.6(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage6.conv.6(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage6.conv.7 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,206 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7 (MobileViTBlock) in the mapping config.
+2026-07-20 13:26:43,206 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.conv1(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.conv1(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.conv1(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.conv1(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.bn1 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,206 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.act1 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,206 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.conv2(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.conv2(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.conv2(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.conv2(Conv2d)
+2026-07-20 13:26:43,206 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.bn2 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,207 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.act2 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,207 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer (Sequential) in the mapping config.
+2026-07-20 13:26:43,207 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.0 (TransformerLayer) in the mapping config.
+2026-07-20 13:26:43,207 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.0.norm1 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,207 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.0.attn (Attention) in the mapping config.
+2026-07-20 13:26:43,207 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.0.attn.qkv(Linear)
+2026-07-20 13:26:43,207 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.0.attn.qkv(Linear)
+2026-07-20 13:26:43,207 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.0.attn.qkv(Linear)
+2026-07-20 13:26:43,207 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.0.attn.qkv(Linear)
+2026-07-20 13:26:43,207 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.0.attn.proj(Linear)
+2026-07-20 13:26:43,207 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.0.attn.proj(Linear)
+2026-07-20 13:26:43,207 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.0.attn.proj(Linear)
+2026-07-20 13:26:43,207 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.0.attn.proj(Linear)
+2026-07-20 13:26:43,207 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.0.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,207 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.0.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,207 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.0.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,207 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.0.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,208 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.0.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,208 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.0.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,208 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.0.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,208 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.0.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,208 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.0.norm2 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,208 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.0.mlp (Sequential) in the mapping config.
+2026-07-20 13:26:43,208 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.0.mlp.0(Linear)
+2026-07-20 13:26:43,208 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.0.mlp.0(Linear)
+2026-07-20 13:26:43,208 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.0.mlp.0(Linear)
+2026-07-20 13:26:43,208 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.0.mlp.0(Linear)
+2026-07-20 13:26:43,208 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.0.mlp.1 (ReLU) in the mapping config.
+2026-07-20 13:26:43,208 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.0.mlp.2 (Dropout) in the mapping config.
+2026-07-20 13:26:43,208 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.0.mlp.3(Linear)
+2026-07-20 13:26:43,208 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.0.mlp.3(Linear)
+2026-07-20 13:26:43,208 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.0.mlp.3(Linear)
+2026-07-20 13:26:43,208 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.0.mlp.3(Linear)
+2026-07-20 13:26:43,208 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.1 (TransformerLayer) in the mapping config.
+2026-07-20 13:26:43,208 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.1.norm1 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,208 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.1.attn (Attention) in the mapping config.
+2026-07-20 13:26:43,208 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.1.attn.qkv(Linear)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.1.attn.qkv(Linear)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.1.attn.qkv(Linear)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.1.attn.qkv(Linear)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.1.attn.proj(Linear)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.1.attn.proj(Linear)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.1.attn.proj(Linear)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.1.attn.proj(Linear)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.1.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.1.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.1.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.1.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.1.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.1.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.1.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.1.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,209 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.1.norm2 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,209 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.1.mlp (Sequential) in the mapping config.
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.1.mlp.0(Linear)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.1.mlp.0(Linear)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.1.mlp.0(Linear)
+2026-07-20 13:26:43,209 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.1.mlp.0(Linear)
+2026-07-20 13:26:43,210 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.1.mlp.1 (ReLU) in the mapping config.
+2026-07-20 13:26:43,210 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.1.mlp.2 (Dropout) in the mapping config.
+2026-07-20 13:26:43,210 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.1.mlp.3(Linear)
+2026-07-20 13:26:43,210 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.1.mlp.3(Linear)
+2026-07-20 13:26:43,210 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.1.mlp.3(Linear)
+2026-07-20 13:26:43,210 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.1.mlp.3(Linear)
+2026-07-20 13:26:43,210 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.2 (TransformerLayer) in the mapping config.
+2026-07-20 13:26:43,210 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.2.norm1 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,210 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.2.attn (Attention) in the mapping config.
+2026-07-20 13:26:43,210 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.2.attn.qkv(Linear)
+2026-07-20 13:26:43,210 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.2.attn.qkv(Linear)
+2026-07-20 13:26:43,210 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.2.attn.qkv(Linear)
+2026-07-20 13:26:43,210 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.2.attn.qkv(Linear)
+2026-07-20 13:26:43,210 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.2.attn.proj(Linear)
+2026-07-20 13:26:43,210 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.2.attn.proj(Linear)
+2026-07-20 13:26:43,210 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.2.attn.proj(Linear)
+2026-07-20 13:26:43,210 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.2.attn.proj(Linear)
+2026-07-20 13:26:43,210 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.2.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,210 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.2.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,211 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.2.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,211 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.2.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,211 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.2.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,211 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.2.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,211 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.2.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,211 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.2.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,211 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.2.norm2 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,211 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.2.mlp (Sequential) in the mapping config.
+2026-07-20 13:26:43,211 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.2.mlp.0(Linear)
+2026-07-20 13:26:43,211 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.2.mlp.0(Linear)
+2026-07-20 13:26:43,211 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.2.mlp.0(Linear)
+2026-07-20 13:26:43,211 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.2.mlp.0(Linear)
+2026-07-20 13:26:43,211 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.2.mlp.1 (ReLU) in the mapping config.
+2026-07-20 13:26:43,211 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.2.mlp.2 (Dropout) in the mapping config.
+2026-07-20 13:26:43,211 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.2.mlp.3(Linear)
+2026-07-20 13:26:43,211 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.2.mlp.3(Linear)
+2026-07-20 13:26:43,211 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.2.mlp.3(Linear)
+2026-07-20 13:26:43,211 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.2.mlp.3(Linear)
+2026-07-20 13:26:43,211 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.3 (TransformerLayer) in the mapping config.
+2026-07-20 13:26:43,211 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.3.norm1 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,211 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.3.attn (Attention) in the mapping config.
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.3.attn.qkv(Linear)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.3.attn.qkv(Linear)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.3.attn.qkv(Linear)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.3.attn.qkv(Linear)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.3.attn.proj(Linear)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.3.attn.proj(Linear)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.3.attn.proj(Linear)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.3.attn.proj(Linear)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.3.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.3.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.3.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.3.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.3.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.3.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.3.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.3.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,212 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.3.norm2 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,212 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.3.mlp (Sequential) in the mapping config.
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.3.mlp.0(Linear)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.3.mlp.0(Linear)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.3.mlp.0(Linear)
+2026-07-20 13:26:43,212 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.3.mlp.0(Linear)
+2026-07-20 13:26:43,213 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.3.mlp.1 (ReLU) in the mapping config.
+2026-07-20 13:26:43,213 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.transformer.3.mlp.2 (Dropout) in the mapping config.
+2026-07-20 13:26:43,213 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.transformer.3.mlp.3(Linear)
+2026-07-20 13:26:43,213 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.transformer.3.mlp.3(Linear)
+2026-07-20 13:26:43,213 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.transformer.3.mlp.3(Linear)
+2026-07-20 13:26:43,213 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.transformer.3.mlp.3(Linear)
+2026-07-20 13:26:43,213 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.conv3(Conv2d)
+2026-07-20 13:26:43,213 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.conv3(Conv2d)
+2026-07-20 13:26:43,213 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.conv3(Conv2d)
+2026-07-20 13:26:43,213 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.conv3(Conv2d)
+2026-07-20 13:26:43,213 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.bn3 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,213 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.act3 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,213 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage7.conv4(Conv2d)
+2026-07-20 13:26:43,213 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage7.conv4(Conv2d)
+2026-07-20 13:26:43,213 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage7.conv4(Conv2d)
+2026-07-20 13:26:43,213 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage7.conv4(Conv2d)
+2026-07-20 13:26:43,213 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.bn4 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,213 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage7.act4 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,213 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage8 (InvertedResidual) in the mapping config.
+2026-07-20 13:26:43,213 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage8.conv (Sequential) in the mapping config.
+2026-07-20 13:26:43,213 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage8.conv.0(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage8.conv.0(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage8.conv.0(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage8.conv.0(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage8.conv.1 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,214 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage8.conv.2 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,214 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage8.conv.3(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage8.conv.3(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage8.conv.3(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage8.conv.3(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage8.conv.4 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,214 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage8.conv.5 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,214 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage8.conv.6(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage8.conv.6(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage8.conv.6(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage8.conv.6(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage8.conv.7 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,214 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block (MobileViTBlock) in the mapping config.
+2026-07-20 13:26:43,214 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.conv1(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.conv1(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.conv1(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.conv1(Conv2d)
+2026-07-20 13:26:43,214 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.bn1 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,214 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.act1 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,215 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.conv2(Conv2d)
+2026-07-20 13:26:43,215 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.conv2(Conv2d)
+2026-07-20 13:26:43,215 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.conv2(Conv2d)
+2026-07-20 13:26:43,215 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.conv2(Conv2d)
+2026-07-20 13:26:43,215 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.bn2 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,215 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.act2 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,215 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer (Sequential) in the mapping config.
+2026-07-20 13:26:43,215 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.0 (TransformerLayer) in the mapping config.
+2026-07-20 13:26:43,215 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.0.norm1 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,216 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.0.attn (Attention) in the mapping config.
+2026-07-20 13:26:43,216 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.0.attn.qkv(Linear)
+2026-07-20 13:26:43,216 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.0.attn.qkv(Linear)
+2026-07-20 13:26:43,216 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.0.attn.qkv(Linear)
+2026-07-20 13:26:43,216 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.0.attn.qkv(Linear)
+2026-07-20 13:26:43,216 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.0.attn.proj(Linear)
+2026-07-20 13:26:43,216 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.0.attn.proj(Linear)
+2026-07-20 13:26:43,216 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.0.attn.proj(Linear)
+2026-07-20 13:26:43,216 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.0.attn.proj(Linear)
+2026-07-20 13:26:43,216 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.0.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,216 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.0.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,216 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.0.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,216 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.0.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,216 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.0.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,216 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.0.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,217 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.0.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,217 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.0.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,217 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.0.norm2 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,217 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.0.mlp (Sequential) in the mapping config.
+2026-07-20 13:26:43,217 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.0.mlp.0(Linear)
+2026-07-20 13:26:43,217 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.0.mlp.0(Linear)
+2026-07-20 13:26:43,217 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.0.mlp.0(Linear)
+2026-07-20 13:26:43,217 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.0.mlp.0(Linear)
+2026-07-20 13:26:43,217 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.0.mlp.1 (ReLU) in the mapping config.
+2026-07-20 13:26:43,217 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.0.mlp.2 (Dropout) in the mapping config.
+2026-07-20 13:26:43,217 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.0.mlp.3(Linear)
+2026-07-20 13:26:43,217 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.0.mlp.3(Linear)
+2026-07-20 13:26:43,217 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.0.mlp.3(Linear)
+2026-07-20 13:26:43,217 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.0.mlp.3(Linear)
+2026-07-20 13:26:43,217 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.1 (TransformerLayer) in the mapping config.
+2026-07-20 13:26:43,218 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.1.norm1 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,218 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.1.attn (Attention) in the mapping config.
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.1.attn.qkv(Linear)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.1.attn.qkv(Linear)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.1.attn.qkv(Linear)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.1.attn.qkv(Linear)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.1.attn.proj(Linear)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.1.attn.proj(Linear)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.1.attn.proj(Linear)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.1.attn.proj(Linear)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.1.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.1.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.1.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.1.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.1.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.1.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.1.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.1.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,218 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.1.norm2 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,218 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.1.mlp (Sequential) in the mapping config.
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.1.mlp.0(Linear)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.1.mlp.0(Linear)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.1.mlp.0(Linear)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.1.mlp.0(Linear)
+2026-07-20 13:26:43,218 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.1.mlp.1 (ReLU) in the mapping config.
+2026-07-20 13:26:43,218 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.1.mlp.2 (Dropout) in the mapping config.
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.1.mlp.3(Linear)
+2026-07-20 13:26:43,218 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.1.mlp.3(Linear)
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.1.mlp.3(Linear)
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.1.mlp.3(Linear)
+2026-07-20 13:26:43,219 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.2 (TransformerLayer) in the mapping config.
+2026-07-20 13:26:43,219 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.2.norm1 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,219 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.2.attn (Attention) in the mapping config.
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.2.attn.qkv(Linear)
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.2.attn.qkv(Linear)
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.2.attn.qkv(Linear)
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.2.attn.qkv(Linear)
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.2.attn.proj(Linear)
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.2.attn.proj(Linear)
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.2.attn.proj(Linear)
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.2.attn.proj(Linear)
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.2.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.2.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.2.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.2.attn.matmul_qk(MatMul)
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.2.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,219 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.2.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,220 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.2.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,220 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.2.attn.matmul_av(MatMul)
+2026-07-20 13:26:43,220 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.2.norm2 (LayerNorm) in the mapping config.
+2026-07-20 13:26:43,220 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.2.mlp (Sequential) in the mapping config.
+2026-07-20 13:26:43,220 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.2.mlp.0(Linear)
+2026-07-20 13:26:43,220 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.2.mlp.0(Linear)
+2026-07-20 13:26:43,220 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.2.mlp.0(Linear)
+2026-07-20 13:26:43,220 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.2.mlp.0(Linear)
+2026-07-20 13:26:43,220 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.2.mlp.1 (ReLU) in the mapping config.
+2026-07-20 13:26:43,220 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.transformer.2.mlp.2 (Dropout) in the mapping config.
+2026-07-20 13:26:43,220 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.transformer.2.mlp.3(Linear)
+2026-07-20 13:26:43,220 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.transformer.2.mlp.3(Linear)
+2026-07-20 13:26:43,220 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.transformer.2.mlp.3(Linear)
+2026-07-20 13:26:43,220 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.transformer.2.mlp.3(Linear)
+2026-07-20 13:26:43,220 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.conv3(Conv2d)
+2026-07-20 13:26:43,220 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.conv3(Conv2d)
+2026-07-20 13:26:43,220 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.conv3(Conv2d)
+2026-07-20 13:26:43,220 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.conv3(Conv2d)
+2026-07-20 13:26:43,220 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.bn3 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,220 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.act3 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,221 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer stage9_block.conv4(Conv2d)
+2026-07-20 13:26:43,221 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer stage9_block.conv4(Conv2d)
+2026-07-20 13:26:43,221 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer stage9_block.conv4(Conv2d)
+2026-07-20 13:26:43,221 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer stage9_block.conv4(Conv2d)
+2026-07-20 13:26:43,221 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.bn4 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,221 - utils.py[line:214] - INFO: Couldn't find the mapping for layer stage9_block.act4 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,221 - utils.py[line:214] - INFO: Couldn't find the mapping for layer conv_head (Sequential) in the mapping config.
+2026-07-20 13:26:43,221 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer conv_head.0(Conv2d)
+2026-07-20 13:26:43,221 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer conv_head.0(Conv2d)
+2026-07-20 13:26:43,221 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer conv_head.0(Conv2d)
+2026-07-20 13:26:43,221 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer conv_head.0(Conv2d)
+2026-07-20 13:26:43,221 - utils.py[line:214] - INFO: Couldn't find the mapping for layer conv_head.1 (BatchNorm2d) in the mapping config.
+2026-07-20 13:26:43,221 - utils.py[line:214] - INFO: Couldn't find the mapping for layer conv_head.2 (ReLU6) in the mapping config.
+2026-07-20 13:26:43,221 - utils.py[line:214] - INFO: Couldn't find the mapping for layer pool (AdaptiveAvgPool2d) in the mapping config.
+2026-07-20 13:26:43,221 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer classifier(Linear)
+2026-07-20 13:26:43,221 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer classifier(Linear)
+2026-07-20 13:26:43,221 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer classifier(Linear)
+2026-07-20 13:26:43,221 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer classifier(Linear)
+2026-07-20 13:26:43,221 - utils.py[line:218] - INFO: Layer mapping check completed.
+2026-07-20 13:26:43,958 - simulator.py[line:392] - INFO: 
+================================== Report: Partition Cycles (iter_N, iter_D, iter_M, N, D, M, fw_W, fw_X) ===================================
+
+HPAT:
+  conv_stem.0: (1, 2, 512, 16, np.int64(27), np.int64(16384), 1, 1)
+  stage2.conv.0: (2, 1, 512, 64, np.int64(16), np.int64(16384), 1, 1)
+  stage2.conv.3: (2, 36, 512, 64, np.int64(576), np.int64(16384), 1, 1)
+  stage2.conv.6: (1, 4, 512, 32, np.int64(64), np.int64(16384), 1, 1)
+  stage3.0.conv.0: (4, 2, 512, 128, np.int64(32), np.int64(16384), 1, 1)
+  stage3.0.conv.3: (4, 72, 128, 128, np.int64(1152), np.int64(4096), 1, 1)
+  stage3.0.conv.6: (2, 8, 128, 64, np.int64(128), np.int64(4096), 1, 1)
+  stage3.1.conv.0: (8, 4, 128, 256, np.int64(64), np.int64(4096), 1, 1)
+  stage3.1.conv.3: (8, 144, 128, 256, np.int64(2304), np.int64(4096), 1, 1)
+  stage3.1.conv.6: (2, 16, 128, 64, np.int64(256), np.int64(4096), 1, 1)
+  stage4.conv.0: (8, 4, 128, 256, np.int64(64), np.int64(4096), 1, 1)
+  stage4.conv.3: (8, 144, 32, 256, np.int64(2304), np.int64(1024), 1, 1)
+  stage4.conv.6: (3, 16, 32, 96, np.int64(256), np.int64(1024), 1, 1)
+  stage5.conv1: (3, 54, 32, 96, np.int64(864), np.int64(1024), 1, 1)
+  stage5.conv2: (5, 6, 32, 144, np.int64(96), np.int64(1024), 1, 1)
+  stage5.transformer.0.attn.qkv: (3, 9, 32, 96, 144, 1024, 1, 1)
+  stage5.transformer.0.attn.proj: (5, 2, 32, 144, 32, 1024, 1, 1)
+  stage5.transformer.0.attn.matmul_qk: (128, 1, 128, 4096, 8, 4096, 1, 1)
+  stage5.transformer.0.attn.matmul_av: (1, 64, 128, 32, 1024, 4096, 1, 1)
+  stage5.transformer.0.mlp.0: (9, 9, 32, 288, 144, 1024, 1, 1)
+  stage5.transformer.0.mlp.3: (5, 18, 32, 144, 288, 1024, 1, 1)
+  stage5.transformer.1.attn.qkv: (3, 9, 32, 96, 144, 1024, 1, 1)
+  stage5.transformer.1.attn.proj: (5, 2, 32, 144, 32, 1024, 1, 1)
+  stage5.transformer.1.attn.matmul_qk: (128, 1, 128, 4096, 8, 4096, 1, 1)
+  stage5.transformer.1.attn.matmul_av: (1, 64, 128, 32, 1024, 4096, 1, 1)
+  stage5.transformer.1.mlp.0: (9, 9, 32, 288, 144, 1024, 1, 1)
+  stage5.transformer.1.mlp.3: (5, 18, 32, 144, 288, 1024, 1, 1)
+  stage5.conv3: (3, 9, 32, 96, np.int64(144), np.int64(1024), 1, 1)
+  stage5.conv4: (3, 108, 32, 96, np.int64(1728), np.int64(1024), 1, 1)
+  stage6.conv.0: (12, 6, 32, 384, np.int64(96), np.int64(1024), 1, 1)
+  stage6.conv.3: (12, 216, 8, 384, np.int64(3456), np.int64(256), 1, 1)
+  stage6.conv.6: (4, 24, 8, 128, np.int64(384), np.int64(256), 1, 1)
+  stage7.conv1: (4, 72, 8, 128, np.int64(1152), np.int64(256), 1, 1)
+  stage7.conv2: (6, 8, 8, 192, np.int64(128), np.int64(256), 1, 1)
+  stage7.transformer.0.attn.qkv: (3, 12, 8, 96, 192, 256, 1, 1)
+  stage7.transformer.0.attn.proj: (6, 2, 8, 192, 32, 256, 1, 1)
+  stage7.transformer.0.attn.matmul_qk: (32, 1, 32, 1024, 8, 1024, 1, 1)
+  stage7.transformer.0.attn.matmul_av: (1, 16, 32, 32, 256, 1024, 1, 1)
+  stage7.transformer.0.mlp.0: (12, 12, 8, 384, 192, 256, 1, 1)
+  stage7.transformer.0.mlp.3: (6, 24, 8, 192, 384, 256, 1, 1)
+  stage7.transformer.1.attn.qkv: (3, 12, 8, 96, 192, 256, 1, 1)
+  stage7.transformer.1.attn.proj: (6, 2, 8, 192, 32, 256, 1, 1)
+  stage7.transformer.1.attn.matmul_qk: (32, 1, 32, 1024, 8, 1024, 1, 1)
+  stage7.transformer.1.attn.matmul_av: (1, 16, 32, 32, 256, 1024, 1, 1)
+  stage7.transformer.1.mlp.0: (12, 12, 8, 384, 192, 256, 1, 1)
+  stage7.transformer.1.mlp.3: (6, 24, 8, 192, 384, 256, 1, 1)
+  stage7.transformer.2.attn.qkv: (3, 12, 8, 96, 192, 256, 1, 1)
+  stage7.transformer.2.attn.proj: (6, 2, 8, 192, 32, 256, 1, 1)
+  stage7.transformer.2.attn.matmul_qk: (32, 1, 32, 1024, 8, 1024, 1, 1)
+  stage7.transformer.2.attn.matmul_av: (1, 16, 32, 32, 256, 1024, 1, 1)
+  stage7.transformer.2.mlp.0: (12, 12, 8, 384, 192, 256, 1, 1)
+  stage7.transformer.2.mlp.3: (6, 24, 8, 192, 384, 256, 1, 1)
+  stage7.transformer.3.attn.qkv: (3, 12, 8, 96, 192, 256, 1, 1)
+  stage7.transformer.3.attn.proj: (6, 2, 8, 192, 32, 256, 1, 1)
+  stage7.transformer.3.attn.matmul_qk: (32, 1, 32, 1024, 8, 1024, 1, 1)
+  stage7.transformer.3.attn.matmul_av: (1, 16, 32, 32, 256, 1024, 1, 1)
+  stage7.transformer.3.mlp.0: (12, 12, 8, 384, 192, 256, 1, 1)
+  stage7.transformer.3.mlp.3: (6, 24, 8, 192, 384, 256, 1, 1)
+  stage7.conv3: (4, 12, 8, 128, np.int64(192), np.int64(256), 1, 1)
+  stage7.conv4: (4, 144, 8, 128, np.int64(2304), np.int64(256), 1, 1)
+  stage8.conv.0: (16, 8, 8, 512, np.int64(128), np.int64(256), 1, 1)
+  stage8.conv.3: (16, 288, 2, 512, np.int64(4608), np.int64(64), 1, 1)
+  stage8.conv.6: (5, 32, 2, 160, np.int64(512), np.int64(64), 1, 1)
+  stage9_block.conv1: (5, 90, 2, 160, np.int64(1440), np.int64(64), 1, 1)
+  stage9_block.conv2: (8, 10, 2, 240, np.int64(160), np.int64(64), 1, 1)
+  stage9_block.transformer.0.attn.qkv: (3, 15, 2, 96, 240, 64, 1, 1)
+  stage9_block.transformer.0.attn.proj: (8, 2, 2, 240, 32, 64, 1, 1)
+  stage9_block.transformer.0.attn.matmul_qk: (8, 1, 8, 256, 8, 256, 1, 1)
+  stage9_block.transformer.0.attn.matmul_av: (1, 4, 8, 32, 64, 256, 1, 1)
+  stage9_block.transformer.0.mlp.0: (15, 15, 2, 480, 240, 64, 1, 1)
+  stage9_block.transformer.0.mlp.3: (8, 30, 2, 240, 480, 64, 1, 1)
+  stage9_block.transformer.1.attn.qkv: (3, 15, 2, 96, 240, 64, 1, 1)
+  stage9_block.transformer.1.attn.proj: (8, 2, 2, 240, 32, 64, 1, 1)
+  stage9_block.transformer.1.attn.matmul_qk: (8, 1, 8, 256, 8, 256, 1, 1)
+  stage9_block.transformer.1.attn.matmul_av: (1, 4, 8, 32, 64, 256, 1, 1)
+  stage9_block.transformer.1.mlp.0: (15, 15, 2, 480, 240, 64, 1, 1)
+  stage9_block.transformer.1.mlp.3: (8, 30, 2, 240, 480, 64, 1, 1)
+  stage9_block.transformer.2.attn.qkv: (3, 15, 2, 96, 240, 64, 1, 1)
+  stage9_block.transformer.2.attn.proj: (8, 2, 2, 240, 32, 64, 1, 1)
+  stage9_block.transformer.2.attn.matmul_qk: (8, 1, 8, 256, 8, 256, 1, 1)
+  stage9_block.transformer.2.attn.matmul_av: (1, 4, 8, 32, 64, 256, 1, 1)
+  stage9_block.transformer.2.mlp.0: (15, 15, 2, 480, 240, 64, 1, 1)
+  stage9_block.transformer.2.mlp.3: (8, 30, 2, 240, 480, 64, 1, 1)
+  stage9_block.conv3: (5, 15, 2, 160, np.int64(240), np.int64(64), 1, 1)
+  stage9_block.conv4: (5, 180, 2, 160, np.int64(2880), np.int64(64), 1, 1)
+  conv_head.0: (20, 10, 2, 640, np.int64(160), np.int64(64), 1, 1)
+  classifier: (32, 40, 1, 1000, 640, 1, 1, 1)
+
+2026-07-20 13:26:43,958 - simulator.py[line:392] - INFO: 
+================================== Report: Insertion Loss (Breakdown) ===================================
+
+HPAT:
+  node_path: ['i0', 'i1']
+  node_insertion_loss: 0.1
+  core_path: ['i3', 'i4', 'i0', 'i5_0', 'i6']
+  core_insertion_loss: 3.4000000000000004
+
+2026-07-20 13:26:43,959 - simulator.py[line:392] - INFO: 
+================================== Report: Energy Cost Breakdown (pJ) ===================================
+
+HPAT:
+  core_mzm_0_i0-LT_MZM:
+    count: 16
+    static_power: 0
+    dynamic_power: 2.25
+    chip_type: PIC_1
+    tuning_cycles: 1
+    static_energy: 0.0
+    dynamic_energy: 0.45
+    total_dynamic_energy: 136324.80000000002
+    total_static_energy: 0.0
+    total_energy: 136324.80000000002
+  core_dac_0_i1-DAC_2:
+    count: 16
+    static_power: 0
+    dynamic_power: 17.857142857142858
+    chip_type: RF_EIC
+    tuning_cycles: 1
+    static_energy: 0.0
+    dynamic_energy: 3.5714285714285716
+    total_dynamic_energy: 1081942.8571428566
+    total_static_energy: 0.0
+    total_energy: 1081942.8571428566
+  core_adc_0_i2-ADC_SAR_1:
+    count: 16
+    static_power: 0
+    dynamic_power: 7.4
+    chip_type: off_chip
+    tuning_cycles: 1
+    static_energy: 0.0
+    dynamic_energy: 1.48
+    total_dynamic_energy: 10159430.39999999
+    total_static_energy: 0.0
+    total_energy: 10159430.39999999
+  core_on_chip_laser_0_i3-Customized_Laser:
+    count: 1
+    static_power: 9.144614530158083
+    dynamic_power: 0
+    chip_type: off_chip
+    tuning_cycles: 1
+    static_energy: 1.8289229060316168
+    dynamic_energy: 0.0
+    total_dynamic_energy: 0.0
+    total_static_energy: 819291.6206775467
+    total_energy: 819291.6206775467
+  core_micro_comb_0_i4-LT_Micro_Comb:
+    count: 1
+    static_power: 0
+    dynamic_power: 0
+    chip_type: RF_EIC
+    tuning_cycles: 1
+    static_energy: 0.0
+    dynamic_energy: 0.0
+    total_dynamic_energy: 0.0
+    total_static_energy: 0.0
+    total_energy: 0.0
+  core_laser_splitter_0_i5-Customized_Laser_Splitter:
+    count: 16
+    static_power: 0
+    dynamic_power: 0
+    chip_type: PIC_2
+    tuning_cycles: 1
+    static_energy: 0.0
+    dynamic_energy: 0.0
+    total_dynamic_energy: 0.0
+    total_static_energy: 0.0
+    total_energy: 0.0
+  core_tia_0_i7-TIA_1:
+    count: 16
+    static_power: 0
+    dynamic_power: 3
+    chip_type: RF_EIC
+    tuning_cycles: 1
+    static_energy: 0.0
+    dynamic_energy: 0.6
+    total_dynamic_energy: 4118688.000000002
+    total_static_energy: 0.0
+    total_energy: 4118688.000000002
+  core_dac_0_i8-DAC_2:
+    count: 16
+    static_power: 0
+    dynamic_power: 17.857142857142858
+    chip_type: RF_EIC
+    tuning_cycles: 1
+    static_energy: 0.0
+    dynamic_energy: 3.5714285714285716
+    total_dynamic_energy: 24516000.0
+    total_static_energy: 0.0
+    total_energy: 24516000.0
+  node_mrr_weight_0_i0-HPAT_MRR:
+    count: 1024
+    static_power: 0.1
+    dynamic_power: 0.18598512119030478
+    chip_type: off_chip
+    tuning_cycles: 5000
+    static_energy: 0.02
+    dynamic_energy: 0.037197024238060955
+    total_dynamic_energy: 16341646.652267823
+    total_static_energy: 9174302.719999999
+    total_energy: 25515949.372267824
+  node_photodetector_0_i1-LT_PD:
+    count: 1024
+    static_power: 0
+    dynamic_power: 1.1
+    chip_type: off_chip
+    tuning_cycles: 1
+    static_energy: 0.0
+    dynamic_energy: 0.22000000000000003
+    total_dynamic_energy: 96651878.40000004
+    total_static_energy: 0.0
+    total_energy: 96651878.40000004
+
+2026-07-20 13:26:43,959 - simulator.py[line:392] - INFO: 
+================================== Report: Total Energy (pJ) ===================================
+
+HPAT: 162999505.45008826
+
+2026-07-20 13:26:43,959 - simulator.py[line:392] - INFO: 
+================================== Report: Computation Latency (s) ===================================
+
+HPAT:
+  total_tuning_latency: 0.00085806
+  total_static_latency: 0.000895928
+
+2026-07-20 13:26:43,960 - simulator.py[line:392] - INFO: 
+================================== Report: Chip Energy Breakdown (pJ) ===================================
+
+HPAT:
+  PIC_1:
+    devices: ['core_mzm_0_i0-LT_MZM']
+    total_dynamic_energy: 136324.80000000002
+    total_static_energy: 0.0
+  RF_EIC:
+    devices: ['core_dac_0_i1-DAC_2', 'core_micro_comb_0_i4-LT_Micro_Comb', 'core_tia_0_i7-TIA_1', 'core_dac_0_i8-DAC_2']
+    total_dynamic_energy: 29716630.85714286
+    total_static_energy: 0.0
+  off_chip:
+    devices: ['core_adc_0_i2-ADC_SAR_1', 'core_on_chip_laser_0_i3-Customized_Laser', 'node_mrr_weight_0_i0-HPAT_MRR', 'node_photodetector_0_i1-LT_PD']
+    total_dynamic_energy: 123152955.45226786
+    total_static_energy: 9993594.340677546
+  PIC_2:
+    devices: ['core_laser_splitter_0_i5-Customized_Laser_Splitter']
+    total_dynamic_energy: 0.0
+    total_static_energy: 0.0
+
+2026-07-20 13:26:43,963 - simulator.py[line:392] - INFO: 
+================================== Report: Area Cost Breakdown (um^2) ===================================
+
+HPAT:
+  core_mzm_0_i0-LT_MZM:
+    count: 16
+    area: 5200
+    chip_type: PIC_1
+    width: 20
+    length: 260
+    total_area: 83200
+  core_dac_0_i1-DAC_2:
+    count: 16
+    area: 11000
+    chip_type: RF_EIC
+    width: 104.88088481701516
+    length: 104.88088481701516
+    total_area: 176000
+  core_adc_0_i2-ADC_SAR_1:
+    count: 16
+    area: 2850
+    chip_type: off_chip
+    width: 53.38539126015655
+    length: 53.38539126015655
+    total_area: 45600
+  core_on_chip_laser_0_i3-Customized_Laser:
+    count: 1
+    area: 120000
+    chip_type: off_chip
+    width: 300
+    length: 400
+    total_area: 120000
+  core_micro_comb_0_i4-LT_Micro_Comb:
+    count: 1
+    area: 1401856
+    chip_type: RF_EIC
+    width: 1184
+    length: 1184
+    total_area: 1401856
+  core_laser_splitter_0_i5-Customized_Laser_Splitter:
+    count: 16
+    area: 2.3400000000000003
+    chip_type: PIC_2
+    width: 1.3
+    length: 1.8
+    total_area: 37.440000000000005
+  core_tia_0_i7-TIA_1:
+    count: 16
+    area: 50
+    chip_type: RF_EIC
+    width: 7.0710678118654755
+    length: 7.0710678118654755
+    total_area: 800
+  core_dac_0_i8-DAC_2:
+    count: 16
+    area: 11000
+    chip_type: RF_EIC
+    width: 104.88088481701516
+    length: 104.88088481701516
+    total_area: 176000
+  node_mrr_weight_0_i0-HPAT_MRR:
+    count: 1024
+    area: 100.0
+    chip_type: off_chip
+    width: 10.0
+    length: 10.0
+    total_area: 102400.0
+  node_photodetector_0_i1-LT_PD:
+    count: 1024
+    area: 40
+    chip_type: off_chip
+    width: 10
+    length: 4
+    total_area: 40960
+  node:
+    area: 1500.0
+    width: 30.0
+    length: 50.0
+    count: 1024
+    chip_type: PIC_1
+    total_area: 1536000.0
+
+2026-07-20 13:26:43,963 - simulator.py[line:392] - INFO: 
+================================== Report: Total Area (um^2) ===================================
+
+HPAT: 5218853.4399999995
+
+2026-07-20 13:26:43,964 - simulator.py[line:392] - INFO: 
+================================== Report: Chip Area Breakdown (um^2) ===================================
+
+HPAT:
+  PIC_1:
+    devices: ['core_mzm_0_i0-LT_MZM', 'node']
+    total_area: 1619200.0
+  RF_EIC:
+    devices: ['core_dac_0_i1-DAC_2', 'core_micro_comb_0_i4-LT_Micro_Comb', 'core_tia_0_i7-TIA_1', 'core_dac_0_i8-DAC_2']
+    total_area: 1754656
+  off_chip:
+    devices: ['core_adc_0_i2-ADC_SAR_1', 'core_on_chip_laser_0_i3-Customized_Laser']
+    total_area: 165600
+  PIC_2:
+    devices: ['core_laser_splitter_0_i5-Customized_Laser_Splitter']
+    total_area: 37.440000000000005
+

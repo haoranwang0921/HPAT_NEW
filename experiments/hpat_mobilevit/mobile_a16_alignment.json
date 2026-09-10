@@ -1,0 +1,68 @@
+{
+  "schema_version": "mobile-reference-v1",
+  "base_config": "config_10ps_fixed_write_energy.json",
+  "rollback": {
+    "date": "2026-09-06",
+    "action": "A16_alignment_knobs_rolled_back_to_mobile_reference_values",
+    "restored_parameters": {
+      "main_dense_int8_tops": "0.15 -> 10",
+      "external_memory_bandwidth_bytes_per_s": "12e9 -> 64e9",
+      "scratchpad_bandwidth_bytes_per_s": "50e9 -> 256e9",
+      "electronic_static_power_w": "3.5 -> 0.3",
+      "external_memory_energy_per_byte_j": "3.5e-10 -> 1e-10"
+    },
+    "reason": "0.15 TOPS was a figure-fit knob (real A16 ANE is 15-17 TOPS); it inflated electronic_static, signed_reduce and vector latency by ~100x and produced a never-measured device profile. Correct alignment path is a bandwidth-floored electronic backend, not a lowered peak.",
+    "status": "spec_parameters_now_equal_to_mobile_reference.json"
+  },
+  "user_confirmed": {
+    "date": "2026-09-06",
+    "main_dense_int8_tops": 10,
+    "comparison_dense_int8_tops": [20, 35],
+    "device_claim": "generic_mobile_class_reference_not_a_measured_phone"
+  },
+  "alignment_target": {
+    "status": "deprecated_rolled_back_2026-09-06",
+    "source": "hpat_latency_energy_efficiency_context.png figure bar est",
+    "estimated_A16_latency_ms": {"xxs": 11.0, "xs": 30.0, "s": 50.0},
+    "estimated_A16_energy_mj": {"xxs": 53.0, "xs": 167.0, "s": 167.0},
+    "figure_read_precision": "log-scale bar height read; treat as ±30% until raw discharge data is provided"
+  },
+  "profiles": ["mobile_reference"],
+  "operations_per_mac": 2,
+  "matrix_precision": "dense_int8_int32_accumulation_cost_only",
+  "compute_utilization": 1.0,
+  "mobile_assumptions": {
+    "external_memory_type": "LPDDR5X_class_abstract_DRAM",
+    "external_memory_bandwidth_bytes_per_s": 64000000000.0,
+    "scratchpad_bandwidth_bytes_per_s": 256000000000.0,
+    "electronic_static_power_w": 0.3,
+    "external_memory_energy_per_byte_j": 1e-10,
+    "vector_peak_fraction": 0.1
+  },
+  "retained_uncalibrated_parameters": {
+    "matmul_energy_per_mac_j": 4e-13,
+    "vector_energy_per_op_j": 9e-13,
+    "sram_energy_per_byte_j": 3.7e-12,
+    "noc_energy_per_byte_j": 2e-12,
+    "weight_sram_bytes": 1048576,
+    "separate_activation_scratchpad_bytes": 8388608,
+    "dma_fixed_latency_s": 1e-7
+  },
+  "sources": [
+    {
+      "url": "https://developer.arm.com/community/arm-community-blogs/b/architectures-and-processors-blog/posts/arm-ethos-n78-npu",
+      "accessed": "2026-09-06",
+      "supports": "Mobile NPU class reference for the rolled-back 10/20/35 TOPS profile."
+    },
+    {
+      "url": "internal/figure:hpat_latency_energy_efficiency_context.png",
+      "accessed": "2026-09-06",
+      "supports": "Deprecated A16 figure-read targets, kept for provenance only."
+    }
+  ],
+  "limitations": [
+    "A16 figure-read targets are deprecated; the spec is parameter-equal to mobile_reference.json.",
+    "If A16 alignment is revisited, use a bandwidth-floored electronic backend plus raw discharge data, not a lowered TOPS peak.",
+    "No operator-accuracy, classification-accuracy, optical-nonideality, or chip-measurement evidence."
+  ]
+}

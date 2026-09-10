@@ -1,0 +1,125 @@
+2026-08-02 20:08:09,162 - simulator.py[line:398] - INFO: 
+============================================================================================
+                                Simphony: ONN Arch Simulator v0.0.1
+                                    Ziang Yin
+                        Jiaqi Gu (https://scopex-asu.github.io)
+================================== Simulation Parameters ===================================
+
+nn_model: SingleLinear
+onn_conversion_cfg: None
+nn_conversion_cfg: configs/nn_mapping/hpat_cnn.yml
+onn_model: None
+model2arch_map_cfg: configs/architecture_mapping/hpat_cnn.yml
+log_path: log/test_hpat_linear_M17_K16_N16.txt
+devicelib_root: configs/devices
+device_cfg_files: ['*/*.yml']
+arch_cfg_file: configs/design/architectures/HPAT_hetero.yml
+arch_version: v1
+input_shape: (17, 16)
+2026-08-02 20:08:09,206 - simulator.py[line:124] - WARNING: ONN model not provided
+2026-08-02 20:08:09,209 - utils.py[line:214] - INFO: Couldn't find the mapping for layer  (SingleLinear) in the mapping config.
+2026-08-02 20:08:09,209 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer linear(Linear)
+2026-08-02 20:08:09,210 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer linear(Linear)
+2026-08-02 20:08:09,210 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer linear(Linear)
+2026-08-02 20:08:09,212 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer linear(Linear)
+2026-08-02 20:08:09,212 - utils.py[line:218] - INFO: Layer mapping check completed.
+2026-08-02 20:08:09,263 - simulator.py[line:398] - INFO: 
+============================================================================================
+                                Simphony: ONN Arch Simulator v0.0.1
+                                    Ziang Yin
+                        Jiaqi Gu (https://scopex-asu.github.io)
+================================== Simulation Parameters ===================================
+
+nn_model: SingleLinear
+onn_conversion_cfg: None
+nn_conversion_cfg: configs/nn_mapping/hpat_cnn.yml
+onn_model: None
+model2arch_map_cfg: configs/architecture_mapping/hpat_cnn.yml
+log_path: log/test_hpat_linear_M257_K512_N512.txt
+devicelib_root: configs/devices
+device_cfg_files: ['*/*.yml']
+arch_cfg_file: configs/design/architectures/HPAT_hetero.yml
+arch_version: v1
+input_shape: (257, 512)
+2026-08-02 20:08:09,316 - simulator.py[line:124] - WARNING: ONN model not provided
+2026-08-02 20:08:09,320 - utils.py[line:214] - INFO: Couldn't find the mapping for layer  (SingleLinear) in the mapping config.
+2026-08-02 20:08:09,322 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer linear(Linear)
+2026-08-02 20:08:09,322 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer linear(Linear)
+2026-08-02 20:08:09,323 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer linear(Linear)
+2026-08-02 20:08:09,324 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer linear(Linear)
+2026-08-02 20:08:09,325 - utils.py[line:218] - INFO: Layer mapping check completed.
+2026-08-02 20:08:09,379 - simulator.py[line:398] - INFO: 
+============================================================================================
+                                Simphony: ONN Arch Simulator v0.0.1
+                                    Ziang Yin
+                        Jiaqi Gu (https://scopex-asu.github.io)
+================================== Simulation Parameters ===================================
+
+nn_model: SingleLinear
+onn_conversion_cfg: None
+nn_conversion_cfg: configs/nn_mapping/hpat_cnn.yml
+onn_model: None
+model2arch_map_cfg: configs/architecture_mapping/hpat_cnn.yml
+log_path: log/test_hpat_linear_M257_K512_N2048.txt
+devicelib_root: configs/devices
+device_cfg_files: ['*/*.yml']
+arch_cfg_file: configs/design/architectures/HPAT_hetero.yml
+arch_version: v1
+input_shape: (257, 512)
+2026-08-02 20:08:09,426 - simulator.py[line:124] - WARNING: ONN model not provided
+2026-08-02 20:08:09,431 - utils.py[line:214] - INFO: Couldn't find the mapping for layer  (SingleLinear) in the mapping config.
+2026-08-02 20:08:09,432 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer linear(Linear)
+2026-08-02 20:08:09,433 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer linear(Linear)
+2026-08-02 20:08:09,434 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer linear(Linear)
+2026-08-02 20:08:09,434 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer linear(Linear)
+2026-08-02 20:08:09,435 - utils.py[line:218] - INFO: Layer mapping check completed.
+2026-08-02 20:08:09,496 - simulator.py[line:398] - INFO: 
+============================================================================================
+                                Simphony: ONN Arch Simulator v0.0.1
+                                    Ziang Yin
+                        Jiaqi Gu (https://scopex-asu.github.io)
+================================== Simulation Parameters ===================================
+
+nn_model: SingleLinear
+onn_conversion_cfg: None
+nn_conversion_cfg: configs/nn_mapping/hpat_cnn.yml
+onn_model: None
+model2arch_map_cfg: configs/architecture_mapping/hpat_cnn.yml
+log_path: log/test_hpat_linear_M257_K2048_N512.txt
+devicelib_root: configs/devices
+device_cfg_files: ['*/*.yml']
+arch_cfg_file: configs/design/architectures/HPAT_hetero.yml
+arch_version: v1
+input_shape: (257, 2048)
+2026-08-02 20:08:09,545 - simulator.py[line:124] - WARNING: ONN model not provided
+2026-08-02 20:08:09,549 - utils.py[line:214] - INFO: Couldn't find the mapping for layer  (SingleLinear) in the mapping config.
+2026-08-02 20:08:09,550 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer linear(Linear)
+2026-08-02 20:08:09,552 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer linear(Linear)
+2026-08-02 20:08:09,553 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer linear(Linear)
+2026-08-02 20:08:09,554 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer linear(Linear)
+2026-08-02 20:08:09,556 - utils.py[line:218] - INFO: Layer mapping check completed.
+2026-08-02 20:08:09,611 - simulator.py[line:398] - INFO: 
+============================================================================================
+                                Simphony: ONN Arch Simulator v0.0.1
+                                    Ziang Yin
+                        Jiaqi Gu (https://scopex-asu.github.io)
+================================== Simulation Parameters ===================================
+
+nn_model: SingleLinear
+onn_conversion_cfg: None
+nn_conversion_cfg: configs/nn_mapping/hpat_cnn.yml
+onn_model: None
+model2arch_map_cfg: configs/architecture_mapping/hpat_cnn.yml
+log_path: log/test_hpat_linear_M1_K512_N3072.txt
+devicelib_root: configs/devices
+device_cfg_files: ['*/*.yml']
+arch_cfg_file: configs/design/architectures/HPAT_hetero.yml
+arch_version: v1
+input_shape: (1, 512)
+2026-08-02 20:08:09,661 - simulator.py[line:124] - WARNING: ONN model not provided
+2026-08-02 20:08:09,664 - utils.py[line:214] - INFO: Couldn't find the mapping for layer  (SingleLinear) in the mapping config.
+2026-08-02 20:08:09,666 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer linear(Linear)
+2026-08-02 20:08:09,668 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer linear(Linear)
+2026-08-02 20:08:09,669 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer linear(Linear)
+2026-08-02 20:08:09,670 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer linear(Linear)
+2026-08-02 20:08:09,671 - utils.py[line:218] - INFO: Layer mapping check completed.

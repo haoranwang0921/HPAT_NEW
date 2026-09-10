@@ -1,0 +1,34 @@
+2026-07-20 13:08:35,258 - simulator.py[line:383] - INFO: 
+============================================================================================
+                                Simphony: ONN Arch Simulator v0.0.1
+                                    Ziang Yin
+                        Jiaqi Gu (https://scopex-asu.github.io)
+================================== Simulation Parameters ===================================
+
+nn_model: CNN
+onn_conversion_cfg: configs/onn_mapping/simple_cnn.yml
+nn_conversion_cfg: configs/nn_mapping/hpat_cnn.yml
+onn_model: None
+model2arch_map_cfg: configs/architecture_mapping/hpat_cnn.yml
+log_path: log/test_hpat.txt
+devicelib_root: configs/devices
+device_cfg_files: ['*/*.yml']
+arch_cfg_file: configs/design/architectures/HPAT_hetero.yml
+arch_version: v1
+input_shape: (2, 3, 32, 32)
+2026-07-20 13:08:35,282 - simulator.py[line:124] - WARNING: ONN model not provided
+2026-07-20 13:08:35,283 - utils.py[line:214] - INFO: Couldn't find the mapping for layer  (CNN) in the mapping config.
+2026-07-20 13:08:35,283 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer conv1(Conv2d)
+2026-07-20 13:08:35,283 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer conv1(Conv2d)
+2026-07-20 13:08:35,283 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer conv1(Conv2d)
+2026-07-20 13:08:35,283 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer conv1(Conv2d)
+2026-07-20 13:08:35,284 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer conv2(Conv2d)
+2026-07-20 13:08:35,284 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer conv2(Conv2d)
+2026-07-20 13:08:35,284 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer conv2(Conv2d)
+2026-07-20 13:08:35,284 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer conv2(Conv2d)
+2026-07-20 13:08:35,284 - utils.py[line:214] - INFO: Couldn't find the mapping for layer pool (AdaptiveAvgPool2d) in the mapping config.
+2026-07-20 13:08:35,284 - utils.py[line:195] - WARNING: Attribute miniblock not found in layer linear(Linear)
+2026-07-20 13:08:35,284 - utils.py[line:195] - WARNING: Attribute w_bit not found in layer linear(Linear)
+2026-07-20 13:08:35,284 - utils.py[line:195] - WARNING: Attribute in_bit not found in layer linear(Linear)
+2026-07-20 13:08:35,284 - utils.py[line:195] - WARNING: Attribute out_bit not found in layer linear(Linear)
+2026-07-20 13:08:35,284 - utils.py[line:218] - INFO: Layer mapping check completed.

@@ -16,6 +16,7 @@ from pathlib import Path
 
 from joint_sim.simphony_backend import SimPhonyBackend, _SIMPHONY_ROOT
 from joint_sim.electronic_backend import ElectronicBackend
+from .energy_ledger import split_components
 
 
 @contextlib.contextmanager
@@ -122,6 +123,7 @@ dynamic ledger; their power/time or event costs are accounted exactly once.
             # upstream reuse factor mistakenly discounts input DAC/EOM energy
             # by M. Use its initialized per-device energy and explicit activity.
             dynamic[name] = 2*M*float(dev["count"])*float(dev["dynamic_energy"])*1e-12
+        stage_components = split_components(dynamic)
         result = {
             "M": M, "K": K, "logical_N": logical_N, "physical_N": physical_N,
             "input_sign_passes": 2, "kernel_scope": "one_physical_core",
@@ -129,6 +131,9 @@ dynamic ledger; their power/time or event costs are accounted exactly once.
             "compute_s": 2*latency["compute_latency_s"],
             "convert_s": 2*latency["conversion_latency_s"],
             "dynamic_components_j": dynamic, "dynamic_energy_j": sum(dynamic.values()),
+            "stage_components_j": stage_components,
+            "stage_energy_j": {s: sum(c.values()) for s, c in stage_components.items()},
+            "initialized_devices": devices,
             "bias_dac_sample_j": bias_sample_energy,
             "raw_simphony_reference": base,
         }
@@ -145,4 +150,5 @@ dynamic ledger; their power/time or event costs are accounted exactly once.
                 "programming": self.programming,
                 "resolved_architecture": self.resolved_architecture,
                 "electronic_energy": asdict(self.electronic_energy),
-                "kernel_scope": "one_physical_core", "physical_cores": 4}
+                "kernel_scope": "one_physical_core", "physical_cores":
+                self.config["user_confirmed"]["tiles"]*self.config["user_confirmed"]["cores_per_tile"]}

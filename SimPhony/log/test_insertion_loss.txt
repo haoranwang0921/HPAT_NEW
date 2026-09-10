@@ -1,0 +1,30 @@
+2026-07-19 04:02:07,038 - simulator.py[line:383] - INFO: 
+============================================================================================
+                                Simphony: ONN Arch Simulator v0.0.1
+                                    Ziang Yin
+                        Jiaqi Gu (https://scopex-asu.github.io)
+================================== Simulation Parameters ===================================
+
+nn_model: CNN
+onn_conversion_cfg: configs/onn_mapping/simple_cnn.yml
+nn_conversion_cfg: configs/nn_mapping/simple_cnn.yml
+onn_model: None
+model2arch_map_cfg: configs/architecture_mapping/simple_cnn.yml
+log_path: log/test_insertion_loss.txt
+devicelib_root: configs/devices
+device_cfg_files: ['*/*.yml']
+arch_cfg_file: configs/design/architectures/LT_hetero.yml
+arch_version: v1
+input_shape: (2, 3, 32, 32)
+2026-07-19 04:02:07,070 - simulator.py[line:124] - WARNING: ONN model not provided
+2026-07-19 04:02:07,071 - utils.py[line:214] - INFO: Couldn't find the mapping for layer  (CNN) in the mapping config.
+2026-07-19 04:02:07,071 - utils.py[line:214] - INFO: Couldn't find the mapping for layer conv1 (Conv2d) in the mapping config.
+2026-07-19 04:02:07,071 - utils.py[line:214] - INFO: Couldn't find the mapping for layer conv2 (Conv2d) in the mapping config.
+2026-07-19 04:02:07,072 - utils.py[line:214] - INFO: Couldn't find the mapping for layer pool (AdaptiveAvgPool2d) in the mapping config.
+2026-07-19 04:02:07,072 - utils.py[line:214] - INFO: Couldn't find the mapping for layer linear (Linear) in the mapping config.
+2026-07-19 04:02:07,072 - utils.py[line:218] - INFO: Layer mapping check completed.
+2026-07-19 04:02:07,123 - simulator.py[line:392] - INFO: 
+================================== Report: Insertion Loss (dB) ===================================
+
+
+

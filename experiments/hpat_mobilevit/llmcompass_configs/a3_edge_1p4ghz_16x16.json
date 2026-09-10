@@ -1,0 +1,73 @@
+{
+  "name": "Edge-honest electronic baseline (A3): 4 cores / 1.4 GHz / 16x16 INT8 / 4 MB / 64 GB/s LPDDR5X-class",
+  "device_count": 1,
+  "interconnect": {
+    "link": {
+      "name": "on-chip-fabric-placeholder",
+      "bandwidth_per_direction_byte": 0.0,
+      "bandwidth_both_directions_byte": 0.0,
+      "latency_second": 0.0,
+      "flit_size_byte": 16,
+      "header_size_byte": 16,
+      "max_payload_size_byte": 256
+    },
+    "link_count_per_device": 0,
+    "topology": "FC"
+  },
+  "device": {
+    "frequency_Hz": 1400000000.0,
+    "compute_chiplet_count": 1,
+    "compute_chiplet": {
+      "physical_core_count": 4,
+      "core_count": 4,
+      "process_node": "4nm",
+      "core": {
+        "sublane_count": 1,
+        "systolic_array": {
+          "array_width": 16,
+          "array_height": 16,
+          "data_type": "int8",
+          "mac_per_cycle": 1
+        },
+        "vector_unit": {
+          "vector_width": 32,
+          "flop_per_cycle": 4,
+          "data_type": "int32",
+          "int32_count": 16,
+          "fp16_count": 0,
+          "fp32_count": 16,
+          "fp64_count": 0
+        },
+        "register_file": {
+          "num_reg_files": 1,
+          "num_registers": 16384,
+          "register_bitwidth": 32,
+          "num_rdwr_ports": 4
+        },
+        "SRAM_KB": 64
+      }
+    },
+    "memory_protocol": "DDR5",
+    "_memory_protocol_list": [
+      "HBM2e",
+      "DDR4",
+      "DDR5",
+      "PCIe4",
+      "PCIe5"
+    ],
+    "io": {
+      "process_node": "7nm",
+      "global_buffer_MB": 4,
+      "physical_global_buffer_MB": 4,
+      "global_buffer_bandwidth_per_cycle_byte": 32,
+      "memory_channel_physical_count": 4,
+      "memory_channel_active_count": 4,
+      "pin_count_per_channel": 16,
+      "bandwidth_per_pin_bit": 8000000000.0
+    },
+    "memory": {
+      "total_capacity_GB": 8
+    }
+  },
+  "_provenance": "Edge-honest revision of A2. Each change is sourced or derived, and each was sensitivity-tested first:/n  global_buffer_MB 25 -> 4 : Coral Edge TPU has 8 MB on-chip SRAM; measured: 2..25 MB does NOT change latency.\n  global_buffer_bandwidth_per_cycle_byte 183 -> 32 (256 -> 44.8 GB/s) : a 16x16 INT8 array needs two operand streams per cycle (16 B weights + 16 B activations) = 32 B/cycle. THIS PARAMETER IS ON THE CRITICAL PATH (sensitivity: 45 GB/s -> 28.53 us vs 256 GB/s -> 16.56 us on the stem shape, -59%).\n  DRAM structure 1ch x 64pin -> 4ch x 16pin at the same 64 GB/s : Snapdragon 8 Gen 3 and Apple A18 Pro both use 4x16-bit LPDDR5X. Measured: structure change alone does NOT change latency at equal aggregate bandwidth.\n  total_capacity_GB 16 -> 8 : Apple A18 Pro ships 8 GB.\n  process_node 7nm -> 4nm : Snapdragon 8 Gen 3 is TSMC N4P.\n  SRAM_KB 192 -> 64 : mobile NPU scale; measured: 64/128/192 KB does NOT change latency.\n  interconnect: NVLink3 inheritance removed (no mobile SoC uses NVLink; unused at device_count=1).\nKEPT as specified by the user: 4 cores, 1.4 GHz, 16x16 INT8. Peak = 4*16*16*1.4GHz*2 = 2.87 TOPS INT8, i.e. entry-edge class (Coral Edge TPU = 4 TOPS), well below flagship mobile NPUs (35-50 TOPS)."
+}

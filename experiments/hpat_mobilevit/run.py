@@ -33,11 +33,12 @@ def write_csv(path, rows):
         writer.writerows(rows)
 
 
-def run_case(config, costs, mode, manifest, records, output, run_id, axis="main", value="nominal", timeline=False):
+def run_case(config, costs, mode, manifest, records, output, run_id, axis="main", value="nominal", timeline=False,
+             simulation_class=TileStreamSimulation):
     output.mkdir(parents=True, exist_ok=False)
     with gzip.open(output/"events.jsonl.gz", "wt", encoding="utf-8") if timeline else _null_file() as f:
         sink = (lambda row: f.write(json.dumps(row, ensure_ascii=False)+"\n")) if timeline else None
-        sim = TileStreamSimulation(config, costs, mode, event_sink=sink)
+        sim = simulation_class(config, costs, mode, event_sink=sink)
         result = sim.run(records, config["model_assumptions"]["inferences_per_run"])
     result.update(run_id=run_id, model=manifest["model"], axis=axis, sweep_value=value,
                   effective_config=config, trace_manifest=manifest)

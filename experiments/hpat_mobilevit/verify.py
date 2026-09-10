@@ -20,6 +20,7 @@ def near(a, b):
 
 def verify_timeline(path, summary):
     resource_end, core_end, core_state = defaultdict(float), defaultdict(float), {}
+    core_inv_start, core_stage_start = {}, {}
     accumulated = defaultdict(float)
     counts = defaultdict(Counter)
     energies = defaultdict(lambda: defaultdict(float))
@@ -43,9 +44,31 @@ def verify_timeline(path, summary):
                 core_end[core] = end
             elif kind in {"dac_encode", "optical_compute", "adc_convert"}:
                 core = r["core"]
-                if core_state.get(core) != r["weight_block"] or start+1e-14 < core_end[core]:
-                    raise AssertionError("Photonic access uses an absent or not-ready weight")
-                core_end[core] = end
+                if core_state.get(core) != r["weight_block"]:
+                    raise AssertionError("Photonic access uses an absent weight")
+                if kind == "dac_encode":
+                    # A new invocation on this core may only start once
+                    # everything previously scheduled there - including the
+                    # previous invocation's last stage - has completed.
+                    if start+1e-14 < core_end[core]:
+                        raise AssertionError("Photonic access uses a not-ready core")
+                    core_inv_start[core] = start
+                else:
+                    # Downstream stages stay inside the invocation. They may
+                    # begin once the upstream stage has emitted its first
+                    # vector, so their start is bounded by the invocation
+                    # admission time and by the upstream stage's start, not by
+                    # the upstream stage's completion. Each stage's own device
+                    # timeline is enforced by the per-resource check above.
+                    if start+1e-14 < core_inv_start.get(core, 0.0):
+                        raise AssertionError("Photonic stage starts before its invocation")
+                    prior = {"optical_compute": "dac_encode",
+                             "adc_convert": "optical_compute"}[kind]
+                    seen = core_stage_start.get((core, prior))
+                    if seen is None or start+1e-14 < seen:
+                        raise AssertionError("Photonic stage order violated")
+                core_stage_start[(core, kind)] = start
+                core_end[core] = max(core_end[core], end)
             if r.get("purpose") in {"partial_sum_read", "partial_sum_write"}:
                 key = (frame, r["op_id"], r["accumulator"])
                 if r["purpose"] == "partial_sum_read" and start+1e-14 < accumulated[key]:

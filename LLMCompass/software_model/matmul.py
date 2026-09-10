@@ -1440,9 +1440,27 @@ class Matmul(Operator):
                     f.writelines("OfmapOffset:    20000000\n")
                     f.writelines("Dataflow : " + dataflow + "\n")
                     f.writelines("Bandwidth : " + "100" + "\n")
-                    f.writelines("MemoryBanks: 1\n\n")
+                    f.writelines("MemoryBanks: 1\n")
+                    # SCALE-Sim v3 config schema: these keys are mandatory and
+                    # were absent from the upstream v2-era template, which made
+                    # every look-up-table miss raise
+                    # "NoOptionError: No option 'useramulatortrace'".
+                    f.writelines("ReadRequestBuffer: 64\n")
+                    f.writelines("WriteRequestBuffer: 64\n\n")
                     f.writelines("[run_presets]\n")
                     f.writelines("InterfaceBandwidth: CALC\n")
+                    f.writelines("UseRamulatorTrace: False\n\n")
+                    f.writelines("[layout]\n")
+                    f.writelines("IfmapCustomLayout: False\n")
+                    f.writelines("FilterCustomLayout: False\n")
+                    f.writelines("IfmapSRAMBankBandwidth: 16\n")
+                    f.writelines("IfmapSRAMBankNum: 2\n")
+                    f.writelines("IfmapSRAMBankPort: 1\n")
+                    f.writelines("FilterSRAMBankBandwidth: 16\n")
+                    f.writelines("FilterSRAMBankNum: 2\n")
+                    f.writelines("FilterSRAMBankPort: 1\n\n")
+                    f.writelines("[sparsity]\n")
+                    f.writelines("SparsitySupport: False\n")
 
                 topology = f"./systolic_array_model/temp/matmul_{os.getpid()}.csv"
                 with open(topology, "w") as f:
