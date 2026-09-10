@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools==81.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hpat-repro"
+version = "1.0.1"
+description = "Anonymous reproducibility artifact for bounded HPAT architecture experiments"
+readme = "README.md"
+requires-python = "==3.12.13"
+license = "Apache-2.0"
+license-files = ["LICENSES/Apache-2.0.txt"]
+authors = [{ name = "Anonymous Artifact Authors" }]
+keywords = [
+  "artifact evaluation",
+  "mobilevit",
+  "optoelectronic acceleration",
+  "reproducibility",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Science/Research",
+  "Operating System :: MacOS :: MacOS X",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering",
+]
+dependencies = [
+  "matplotlib==3.11.0",
+  "numpy==2.5.1",
+  "pillow==12.3.0",
+]
+
+[project.optional-dependencies]
+ml = [
+  "timm==1.0.27",
+  "torch==2.12.1",
+  "torchvision==0.27.1",
+]
+dev = [
+  "pytest==9.0.3",
+]
+
+[project.scripts]
+hpat-repro = "hpat_eval.repro_cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "experiments/src" }
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["experiments/src"]
+
+[tool.pytest.ini_options]
+addopts = ["--strict-config", "--strict-markers"]
+testpaths = ["experiments/tests"]
+pythonpath = ["experiments/src"]
+
+[tool.uv]
+required-version = "==0.9.18"
+
+# Linux CI uses explicit CPU wheels; macOS keeps the standard PyPI wheels with
+# MPS support. This avoids downloading unused CUDA runtimes for CPU smoke jobs.
+[tool.uv.sources]
+torch = { index = "pytorch-cpu", marker = "sys_platform == 'linux'" }
+torchvision = { index = "pytorch-cpu", marker = "sys_platform == 'linux'" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

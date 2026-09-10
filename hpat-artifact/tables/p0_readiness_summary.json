@@ -1,0 +1,68 @@
+{
+  "experiments": [
+    {
+      "blockers": [
+        "No HPAT simulator activity CSV and complete unit-cost metadata were provided."
+      ],
+      "claim_eligible": false,
+      "evidence_tier": "not claimable",
+      "experiment": "P0-E1",
+      "meaning": "HPAT simulator activity and unit-cost gate",
+      "promotion_requirements": [
+        "Provide HPAT simulator-exported activity counts for MobileViT-XXS/XS/S.",
+        "Provide complete unit-cost metadata: value, unit, source, technology_assumption, precision, and scope_note.",
+        "Keep calibrated energy labelled modelled from simulator activity, not silicon-measured."
+      ],
+      "source_manifest": "hpat_energy_manifest.json",
+      "status": "blocked"
+    },
+    {
+      "blockers": [
+        "No external edge/mobile baseline package was provided."
+      ],
+      "claim_eligible": false,
+      "evidence_tier": "not claimable",
+      "experiment": "P0-E2",
+      "meaning": "Edge/mobile baseline import gate",
+      "promotion_requirements": [
+        "Provide raw edge/mobile latency samples for MobileViT-XXS/XS/S with device/runtime/precision metadata.",
+        "Provide synchronized power logs only if power/energy claims are requested.",
+        "Keep edge rows as MobileViT baseline context, not measured HPAT deployment."
+      ],
+      "source_manifest": "edge_baseline_import_manifest.json",
+      "status": "blocked"
+    },
+    {
+      "blockers": [],
+      "claim_eligible": true,
+      "evidence_tier": "local/modelled diagnostic; paper-eligible with limitations",
+      "experiment": "P0-E3",
+      "meaning": "Accuracy-coupled non-ideality gate",
+      "promotion_requirements": [
+        "Provide a fixed labeled validation subset and recorded clean/perturbed logits.",
+        "Use HPAT mapping-aligned injection boundary with sufficient coverage.",
+        "Do not use all-linear-smoke or unlabeled logit drift for accuracy robustness claims."
+      ],
+      "source_manifest": "nonideality_accuracy_sweep_manifest.json",
+      "status": "paper_eligible_with_limitations"
+    },
+    {
+      "blockers": [
+        "No desktop baseline provenance manifest was available."
+      ],
+      "claim_eligible": false,
+      "evidence_tier": "not claimable",
+      "experiment": "P0-E4",
+      "meaning": "Desktop baseline provenance gate",
+      "promotion_requirements": [
+        "Keep retained CPU/GPU rows labelled as measured desktop references only; do not use them as mobile/edge evidence.",
+        "Local MPS rows support desktop reference context only."
+      ],
+      "source_manifest": "baseline_provenance_manifest.json",
+      "status": "blocked"
+    }
+  ],
+  "gate_version": "p0-gate-v2",
+  "overall_g1_ready": false,
+  "schema_version": "p0-readiness-v1"
+}

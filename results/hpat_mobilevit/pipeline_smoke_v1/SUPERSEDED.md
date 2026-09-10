@@ -1,0 +1,1 @@
+本目录仅为开发冒烟结果，不得用于论文：早期选取只按op_role，误选QKV/FFN的view元数据节点。有效结果为相邻pipeline_smoke_v2，已同时限定Linear/Conv2d/MatMul类型。原文件保留供审计。

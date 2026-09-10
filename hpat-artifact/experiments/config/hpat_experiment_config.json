@@ -1,0 +1,187 @@
+{
+  "run_label": "hpat_aspdac_c_lite_smoke",
+  "seed": 20260706,
+  "energy_envelope_mj": {
+    "MobileViT-XXS": 1.96,
+    "MobileViT-XS": 7.14,
+    "MobileViT-S": 17.28
+  },
+  "baseline": {
+    "warmup": 8,
+    "iterations": 50,
+    "repeats": 3
+  },
+  "mobilevit_variants": [
+    {
+      "name": "MobileViT-XXS",
+      "timm_model": "mobilevit_xxs",
+      "parameter_count_m": 0.6,
+      "d": 128,
+      "input_resolution": 192,
+      "draft_group": "4x4",
+      "token_count_sweep": [64, 144, 196, 256]
+    },
+    {
+      "name": "MobileViT-XS",
+      "timm_model": "mobilevit_xs",
+      "parameter_count_m": 1.3,
+      "d": 192,
+      "input_resolution": 224,
+      "draft_group": "4x4",
+      "token_count_sweep": [64, 144, 196, 256]
+    },
+    {
+      "name": "MobileViT-S",
+      "timm_model": "mobilevit_s",
+      "parameter_count_m": 3.2,
+      "d": 256,
+      "input_resolution": 256,
+      "draft_group": "8x8",
+      "token_count_sweep": [64, 144, 196, 256]
+    }
+  ],
+  "bit_width_sweep": [4, 6, 8, 10, 12],
+  "precision_bit_width_sweep": [4, 6, 8, 10, 12],
+  "weight_programming_modes": [0, 1],
+  "qkv": {
+    "primary_token_count": 196,
+    "default_bit_width": 8,
+    "bus_multiplier": 1.0,
+    "weight_modes": [
+      {
+        "name": "resident",
+        "programming_events": 0,
+        "stream_weights": false,
+        "reuse_interval": "within-layer resident/cached"
+      },
+      {
+        "name": "streamed",
+        "programming_events": 0,
+        "stream_weights": true,
+        "reuse_interval": "streamed from local buffer"
+      },
+      {
+        "name": "reprogrammed",
+        "programming_events": 1,
+        "stream_weights": false,
+        "reuse_interval": "per-layer reconfiguration"
+      }
+    ]
+  },
+  "activity_proxy": {
+    "ops_per_ns": 250000,
+    "mrr_program_fraction": 0.15,
+    "maximal_mapping": {
+      "scenario": "maximal_all_mac",
+      "conv_lowering": "direct_sliding_window_stream",
+      "materialize_im2col": false,
+      "electronic_floor_fraction": 0.08,
+      "scope": "all traced Linear, pointwise/spatial/depthwise Conv2d, QK^T, and Attention-by-V MACs"
+    }
+  },
+  "energy_unit_costs": {
+    "optical_source_pj_per_ns": 1500.0,
+    "dac_sample_pj": 1.5,
+    "input_mod_sample_pj": 0.8,
+    "mrr_program_pj": 4.0,
+    "mrr_hold_pj_per_ring_ns": 0.00003,
+    "thermal_pj_per_ring_ns": 0.00007,
+    "pd_sample_pj": 0.35,
+    "tia_sample_pj": 0.65,
+    "sample_hold_pj": 0.2,
+    "adc_sample_pj": 3.2,
+    "memory_read_pj_per_byte": 0.05,
+    "memory_write_pj_per_byte": 0.07,
+    "bus_pj_per_byte": 0.1,
+    "control_pj_per_event": 8.0,
+    "nonlinear_pj_per_op": 0.25,
+    "calibration_pj_per_event": 15000.0
+  },
+  "energy_uncertainty": {
+    "optical": [0.75, 1.0, 1.5],
+    "converters": [0.75, 1.0, 2.0],
+    "memory_bus": [0.5, 1.0, 2.0],
+    "thermal_calibration": [0.5, 1.0, 3.0],
+    "digital_remainder": [0.75, 1.0, 1.5]
+  },
+  "nonideality": {
+    "injection_profile": "calibrated_proxy_v2",
+    "thermal_compensation_efficiency": 0.95,
+    "thermal_residual_gain_sigma_per_c": 0.02,
+    "thermal_common_loss_per_residual_c": 0.002,
+    "trials": 200,
+    "dimensions": [128, 192, 256],
+    "noise_lsb": [0.0, 0.25, 0.5, 1.0],
+    "crosstalk_alpha": [0.0, 0.01, 0.03, 0.05],
+    "quant_bits": [4, 6, 8, 10, 12],
+    "insertion_loss_db": [0.0, 1.0, 2.0, 3.0],
+    "detuning_pm": [0.0, 5.0, 10.0, 20.0],
+    "mrr_variation_percent": [0.0, 1.0, 3.0, 5.0],
+    "thermal_drift_c": [0.0, 2.0, 5.0, 10.0]
+  },
+  "scalability": {
+    "wavelengths": [8, 16, 32],
+    "pdpu_banks": [1, 2, 4],
+    "tiles": [1, 2],
+    "adc_parallelism": [8, 16, 32],
+    "memory_bandwidth_gbps": [64, 128],
+    "thermal_calibration_multipliers": [1.0, 1.5],
+    "wavelength_budget": 32,
+    "physical_proxy": {
+      "mrr_area_um2": 100.0,
+      "converter_area_um2": 4000.0,
+      "base_path_loss_db": 2.0,
+      "loss_per_tile_db": 0.25,
+      "loss_per_wavelength_db": 0.01,
+      "laser_mw_per_db": 0.8,
+      "thermal_density_limit": 200000.0
+    }
+  },
+  "p2": {
+    "layout_area_proxy": {
+      "wavelengths": [8, 16, 32],
+      "pdpu_banks": [1, 2, 4],
+      "tiles": [1, 2],
+      "bit_width": 8,
+      "area_budget_mm2": 16.0,
+      "default_adc_count_proxy": 16,
+      "interconnect_area_multiplier": 0.35
+    },
+    "thermal_stress": {
+      "wavelengths": 16,
+      "pdpu_banks": 2,
+      "tiles": 2,
+      "retune_interval_inferences": [100, 1000, 10000],
+      "high_risk_thermal_drift_c": 10.0
+    },
+    "additional_model_families": [
+      {
+        "family": "EfficientFormer",
+        "name": "EfficientFormer-L1",
+        "timm_model": "efficientformer_l1",
+        "parameter_count_m": 12.3,
+        "d": 448,
+        "input_resolution": 224,
+        "token_count_sweep": [196]
+      },
+      {
+        "family": "EfficientFormer",
+        "name": "EfficientFormer-L3",
+        "timm_model": "efficientformer_l3",
+        "parameter_count_m": 31.4,
+        "d": 512,
+        "input_resolution": 224,
+        "token_count_sweep": [196]
+      },
+      {
+        "family": "EfficientFormer",
+        "name": "EfficientFormer-L7",
+        "timm_model": "efficientformer_l7",
+        "parameter_count_m": 82.2,
+        "d": 768,
+        "input_resolution": 224,
+        "token_count_sweep": [196]
+      }
+    ]
+  }
+}

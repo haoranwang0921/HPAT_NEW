@@ -1,0 +1,90 @@
+# Operating-system and editor state
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Python environments, caches, and build products
+.venv/
+.venv-*/
+venv/
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Local credentials, host state, and research coordination metadata
+.env
+.env.*
+!.env.example
+.research-resource.json
+.research-project
+.agents/
+.codex/
+
+# Private review material and scratch output
+private/
+internal/
+review_packets/
+tmp/
+scratch/
+output/
+docs/archive/
+
+# Dataset payloads and download caches. Only manifests belong in the release.
+experiments/data/
+*.tgz
+*.tar
+*.tar.gz
+*.zip
+
+# Model payloads and Apple/Core ML generated products
+experiments/ios_coreml_benchmark/Models/
+**/xcuserdata/
+*.mlmodel
+*.mlpackage/
+*.mlmodelc/
+*.safetensors
+*.ckpt
+*.onnx
+*.pt
+*.pth
+weight.bin
+
+# Device traces, logs, and machine-specific diagnostics
+*.log
+*.trace
+*.trace/
+*.xcresult/
+*.npz
+*.npy
+*.xml
+
+# Historical/local runs and generated release trees are never Git inputs.
+# The commit-bound reference archive is attached to the GitHub Release.
+experiments/results/
+runs/
+artifacts/
+
+# Figure drafts and oversized publication intermediates
+figures/image2_drafts/
+*.tif
+*.tiff
+
+# Manuscripts and publication material are outside the experiment-only repo.
+paper/
+paper_src/
+manuscript/
+*.pdf
+*.tex

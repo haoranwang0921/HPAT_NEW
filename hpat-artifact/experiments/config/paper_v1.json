@@ -1,0 +1,208 @@
+{
+  "schema_version": "hpat-paper-config-v1",
+  "profile": "paper",
+  "run_label": "paper_v1",
+  "seed": 20260706,
+  "repeat_seeds": [20260706, 20260707, 20260708, 20260709, 20260710],
+  "precision": "fp32",
+  "precision_scope": {
+    "trace_and_accuracy_dtype": "fp32",
+    "energy_unit_cost_proxy": "8-bit nominal",
+    "cross_precision_accuracy_energy_coupling": "not modelled"
+  },
+  "baseline": {
+    "warmup": 8,
+    "iterations": 50,
+    "repeats": 3
+  },
+  "mobilevit_variants": [
+    {
+      "name": "MobileViT-XXS",
+      "timm_model": "mobilevit_xxs",
+      "parameter_count_m": 0.6,
+      "d": 128,
+      "input_resolution": 192,
+      "draft_group": "4x4",
+      "token_count_sweep": [64, 144, 196, 256]
+    },
+    {
+      "name": "MobileViT-XS",
+      "timm_model": "mobilevit_xs",
+      "parameter_count_m": 1.3,
+      "d": 192,
+      "input_resolution": 224,
+      "draft_group": "4x4",
+      "token_count_sweep": [64, 144, 196, 256]
+    },
+    {
+      "name": "MobileViT-S",
+      "timm_model": "mobilevit_s",
+      "parameter_count_m": 3.2,
+      "d": 256,
+      "input_resolution": 256,
+      "draft_group": "8x8",
+      "token_count_sweep": [64, 144, 196, 256]
+    }
+  ],
+  "bit_width_sweep": [4, 6, 8, 10, 12],
+  "precision_bit_width_sweep": [4, 6, 8, 10, 12],
+  "weight_programming_modes": [0, 1],
+  "qkv": {
+    "primary_token_count": 196,
+    "default_bit_width": 8,
+    "bus_multiplier": 1.0,
+    "weight_modes": [
+      {
+        "name": "resident",
+        "programming_events": 0,
+        "stream_weights": false,
+        "reuse_interval": "within-layer resident/cached"
+      },
+      {
+        "name": "streamed",
+        "programming_events": 0,
+        "stream_weights": true,
+        "reuse_interval": "streamed from local buffer"
+      },
+      {
+        "name": "reprogrammed",
+        "programming_events": 1,
+        "stream_weights": false,
+        "reuse_interval": "per-layer reconfiguration"
+      }
+    ]
+  },
+  "activity_proxy": {
+    "ops_per_ns": 250000,
+    "mrr_program_fraction": 0.15,
+    "maximal_mapping": {
+      "scenario": "maximal_all_mac",
+      "conv_lowering": "direct_sliding_window_stream",
+      "materialize_im2col": false,
+      "electronic_floor_fraction": 0.08,
+      "scope": "all traced Linear, pointwise/spatial/depthwise Conv2d, QK^T, and Attention-by-V MACs"
+    }
+  },
+  "energy_unit_costs": {
+    "optical_source_pj_per_ns": 1500.0,
+    "dac_sample_pj": 1.5,
+    "input_mod_sample_pj": 0.8,
+    "mrr_program_pj": 4.0,
+    "mrr_hold_pj_per_ring_ns": 0.00003,
+    "thermal_pj_per_ring_ns": 0.00007,
+    "pd_sample_pj": 0.35,
+    "tia_sample_pj": 0.65,
+    "sample_hold_pj": 0.2,
+    "adc_sample_pj": 3.2,
+    "memory_read_pj_per_byte": 0.05,
+    "memory_write_pj_per_byte": 0.07,
+    "bus_pj_per_byte": 0.1,
+    "control_pj_per_event": 8.0,
+    "nonlinear_pj_per_op": 0.25,
+    "calibration_pj_per_event": 15000.0
+  },
+  "energy_uncertainty": {
+    "optical": [0.75, 1.0, 1.5],
+    "converters": [0.75, 1.0, 2.0],
+    "memory_bus": [0.5, 1.0, 2.0],
+    "thermal_calibration": [0.5, 1.0, 3.0],
+    "digital_remainder": [0.75, 1.0, 1.5]
+  },
+  "nonideality": {
+    "injection_profile": "calibrated_proxy_v2",
+    "thermal_compensation_efficiency": 0.95,
+    "thermal_residual_gain_sigma_per_c": 0.02,
+    "thermal_common_loss_per_residual_c": 0.002,
+    "noise_lsb": [0.0, 0.25, 0.5, 1.0],
+    "crosstalk_alpha": [0.0, 0.01, 0.03, 0.05],
+    "mrr_variation_percent": [0.0, 1.0, 3.0, 5.0],
+    "thermal_drift_c": [0.0, 2.0, 5.0, 10.0]
+  },
+  "reproducibility": {
+    "python": "3.12.13",
+    "canonical_backend": "mps",
+    "dtype": "fp32",
+    "synchronization": {
+      "mps": "torch.mps.synchronize after accelerator forwards and around timed regions",
+      "cuda": "torch.cuda.synchronize after accelerator forwards and around timed regions",
+      "cpu": "not required"
+    },
+    "warmup": {
+      "operator_trace": 0,
+      "nonideality_accuracy": 0,
+      "latency_probe": 8
+    },
+    "mapping": {
+      "scenario": "reasonable_max",
+      "injection_boundary": "reasonable-max",
+      "min_boundary_coverage": 0.5
+    },
+    "dataset": {
+      "name": "Imagenette-160 validation",
+      "archive_url": "https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz",
+      "archive_sha256": "64d0c4859f35a461889e0147755a999a48b49bf38a7e0f9bd27003f10db02fe5",
+      "sample_count": 1024,
+      "sampling_seed": 20260706,
+      "class_count": 10,
+      "base_samples_per_class": 102,
+      "remainder_policy": "one additional sample for the first four synsets in lexicographic order",
+      "classes": [
+        {"synset": "n01440764", "label": 0, "class_name": "tench"},
+        {"synset": "n02102040", "label": 217, "class_name": "English springer"},
+        {"synset": "n02979186", "label": 482, "class_name": "cassette player"},
+        {"synset": "n03000684", "label": 491, "class_name": "chain saw"},
+        {"synset": "n03028079", "label": 497, "class_name": "church"},
+        {"synset": "n03394916", "label": 566, "class_name": "French horn"},
+        {"synset": "n03417042", "label": 569, "class_name": "garbage truck"},
+        {"synset": "n03425413", "label": 571, "class_name": "gas pump"},
+        {"synset": "n03445777", "label": 574, "class_name": "golf ball"},
+        {"synset": "n03888257", "label": 701, "class_name": "parachute"}
+      ]
+    },
+    "weights": [
+      {
+        "model": "mobilevit_xxs",
+        "provider": "timm/Hugging Face Hub",
+        "repo_id": "timm/mobilevit_xxs.cvnets_in1k",
+        "revision": "2c62d71504c6fbba9bb322f728586c4a235e5fa4",
+        "filename": "model.safetensors",
+        "sha256": "3b720d6c98b8fe845554c66b1dae95c15bc44444b117303df4c8cc7f2296a3b8",
+        "license": "cvnets-license"
+      },
+      {
+        "model": "mobilevit_xs",
+        "provider": "timm/Hugging Face Hub",
+        "repo_id": "timm/mobilevit_xs.cvnets_in1k",
+        "revision": "7a989ba56f36ed9f230044306e1e31563132c35e",
+        "filename": "model.safetensors",
+        "sha256": "0dab21a2752b2418a9db1486a4c03488569b4b5eca7d4197784d030abbce801f",
+        "license": "cvnets-license"
+      },
+      {
+        "model": "mobilevit_s",
+        "provider": "timm/Hugging Face Hub",
+        "repo_id": "timm/mobilevit_s.cvnets_in1k",
+        "revision": "b531fe564ef88515b1aa1743ad4c40452b9f80ee",
+        "filename": "model.safetensors",
+        "sha256": "87f5585cb61814a5e18920d556772ed9c3af6c9ad72b6cf798c654021c306f81",
+        "license": "cvnets-license"
+      }
+    ],
+    "nonideality_run": {
+      "model_variant": "all",
+      "pretrained": true,
+      "effects": [
+        "gaussian_pd_tia_noise",
+        "wdm_adjacent_crosstalk",
+        "mrr_variation",
+        "thermal_drift"
+      ],
+      "batch_size": 32,
+      "save_logits": "summary",
+      "save_prediction_detail": "topk-margin",
+      "evidence_tier": "local-modelled diagnostic",
+      "artifact_status": "paper_eligible_with_limitations"
+    },
+    "claim_boundary": "Fixed-subset local/modelled diagnostic evidence only; not full ImageNet validation, not fabricated silicon, not calibrated silicon energy, not author-measured HPAT edge/mobile deployment, and not cross-platform superiority."
+  }
+}

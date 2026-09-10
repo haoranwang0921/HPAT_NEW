@@ -1,0 +1,24 @@
+# 文本文件统一 LF（避免跨平台换行冲突）
+* text=auto
+
+# 二进制文件不转换
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.pdf binary
+*.pptx binary
+*.ppt binary
+*.docx binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.mp4 binary
+*.wav binary
+*.mp3 binary
+*.npy binary
+*.ckpt binary
+*.safetensors binary
+*.h5 binary
+*.pth binary
+*.onnx binary

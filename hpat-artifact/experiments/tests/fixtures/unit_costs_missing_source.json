@@ -1,0 +1,20 @@
+{
+  "costs": {
+    "optical_source_pj_per_ns": {"value": 1500.0, "unit": "pJ/ns", "technology_assumption": "fixture photonic source", "precision": "8-bit fixture", "scope_note": "fixture only"},
+    "dac_sample_pj": {"value": 1.5, "unit": "pJ/sample", "source": "fixture", "technology_assumption": "fixture DAC", "precision": "8-bit fixture", "scope_note": "fixture only"},
+    "input_mod_sample_pj": {"value": 0.8, "unit": "pJ/sample", "source": "fixture", "technology_assumption": "fixture modulator", "precision": "8-bit fixture", "scope_note": "fixture only"},
+    "mrr_program_pj": {"value": 4.0, "unit": "pJ/event", "source": "fixture", "technology_assumption": "fixture MRR", "precision": "8-bit fixture", "scope_note": "fixture only"},
+    "mrr_hold_pj_per_ring_ns": {"value": 0.00003, "unit": "pJ/ring/ns", "source": "fixture", "technology_assumption": "fixture MRR", "precision": "8-bit fixture", "scope_note": "fixture only"},
+    "thermal_pj_per_ring_ns": {"value": 0.00007, "unit": "pJ/ring/ns", "source": "fixture", "technology_assumption": "fixture thermal", "precision": "8-bit fixture", "scope_note": "fixture only"},
+    "pd_sample_pj": {"value": 0.35, "unit": "pJ/sample", "source": "fixture", "technology_assumption": "fixture PD", "precision": "8-bit fixture", "scope_note": "fixture only"},
+    "tia_sample_pj": {"value": 0.65, "unit": "pJ/sample", "source": "fixture", "technology_assumption": "fixture TIA", "precision": "8-bit fixture", "scope_note": "fixture only"},
+    "sample_hold_pj": {"value": 0.2, "unit": "pJ/sample", "source": "fixture", "technology_assumption": "fixture S/H", "precision": "8-bit fixture", "scope_note": "fixture only"},
+    "adc_sample_pj": {"value": 3.2, "unit": "pJ/sample", "source": "fixture", "technology_assumption": "fixture ADC", "precision": "8-bit fixture", "scope_note": "fixture only"},
+    "memory_read_pj_per_byte": {"value": 0.05, "unit": "pJ/byte", "source": "fixture", "technology_assumption": "fixture SRAM", "precision": "8-bit fixture", "scope_note": "fixture only"},
+    "memory_write_pj_per_byte": {"value": 0.07, "unit": "pJ/byte", "source": "fixture", "technology_assumption": "fixture SRAM", "precision": "8-bit fixture", "scope_note": "fixture only"},
+    "bus_pj_per_byte": {"value": 0.1, "unit": "pJ/byte", "source": "fixture", "technology_assumption": "fixture bus", "precision": "8-bit fixture", "scope_note": "fixture only"},
+    "control_pj_per_event": {"value": 8.0, "unit": "pJ/event", "source": "fixture", "technology_assumption": "fixture controller", "precision": "8-bit fixture", "scope_note": "fixture only"},
+    "nonlinear_pj_per_op": {"value": 0.25, "unit": "pJ/op", "source": "fixture", "technology_assumption": "fixture electronics", "precision": "8-bit fixture", "scope_note": "fixture only"},
+    "calibration_pj_per_event": {"value": 15000.0, "unit": "pJ/event", "source": "fixture", "technology_assumption": "fixture calibration", "precision": "8-bit fixture", "scope_note": "fixture only"}
+  }
+}

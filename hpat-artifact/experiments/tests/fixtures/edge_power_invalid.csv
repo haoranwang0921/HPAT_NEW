@@ -1,0 +1,2 @@
+timestamp_s,power_w,model_variant,measurement_window,idle_subtracted,sampling_rate_hz
+0.0,4.5,MobileViT-XXS,,yes,10

@@ -1,0 +1,2 @@
+model_variant,layer_id,op_type,n_dac_samples,n_adc_samples
+MobileViT-XXS,xxs_layer_000,Linear,-1,128

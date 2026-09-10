@@ -1,0 +1,12 @@
+device_id: fixture_edge_001
+device_label: Fixture Edge Device
+device_type: Jetson-style fixture
+os: FixtureOS 1.0
+runtime: TensorRT
+precision: fp16
+power_method: latency-only
+power_sampling_rate_hz:
+thermal_mode: fixed fixture mode
+power_mode: fixed fixture power mode
+driver_versions: fixture
+notes: smoke fixture only

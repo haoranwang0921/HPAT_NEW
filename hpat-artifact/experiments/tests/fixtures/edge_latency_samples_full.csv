@@ -1,0 +1,5 @@
+model_variant,input_shape,batch_size,runtime,precision,latency_ms,sample_index,warmup,measured_iterations
+MobileViT-XXS,1x3x192x192,1,TensorRT,fp16,3.10,0,5,20
+MobileViT-XXS,1x3x192x192,1,TensorRT,fp16,3.30,1,5,20
+MobileViT-XS,1x3x224x224,1,TensorRT,fp16,5.25,0,5,20
+MobileViT-S,1x3x256x256,1,TensorRT,fp16,8.75,0,5,20

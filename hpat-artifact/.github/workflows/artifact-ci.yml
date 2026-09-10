@@ -1,0 +1,106 @@
+name: Artifact CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: artifact-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+  SOURCE_DATE_EPOCH: "1783296000"
+  FORCE_SOURCE_DATE: "1"
+
+jobs:
+  cpu-smoke-and-tests:
+    name: CPU smoke and unit tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out the anonymous artifact
+        uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: 0.9.18
+          enable-cache: true
+
+      - name: Create the locked test environment
+        run: uv sync --locked --extra ml --extra dev
+
+      - name: Run unit and reproducibility tests
+        run: uv run pytest -q
+
+      - name: Run the explicit CPU smoke profile
+        run: >-
+          uv run hpat-repro run
+          --profile smoke
+          --device cpu
+          --output-dir "${RUNNER_TEMP}/hpat-smoke"
+
+      - name: Verify the smoke manifest
+        run: uv run hpat-repro verify --run-dir "${RUNNER_TEMP}/hpat-smoke"
+
+      - name: Confirm output isolation
+        shell: bash
+        run: |
+          git diff --exit-code
+          status="$(git status --porcelain --untracked-files=all)"
+          if [[ -n "${status}" ]]; then
+            printf '%s\n' "${status}"
+            exit 1
+          fi
+
+  package-and-release-audit:
+    name: Experiment package and release audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out the anonymous artifact
+        uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: 0.9.18
+          enable-cache: true
+
+      - name: Create the locked audit environment
+        run: uv sync --locked --extra ml --extra dev
+
+      - name: Check canonical table and release contracts
+        run: >-
+          uv run pytest -q
+          experiments/tests/test_reproducibility_package.py
+          experiments/tests/test_release_freeze.py
+
+      - name: Create a clean public archive
+        shell: bash
+        run: |
+          mkdir -p "${RUNNER_TEMP}/public-tree"
+          git archive --format=tar --output "${RUNNER_TEMP}/public-tree.tar" HEAD
+          tar -xf "${RUNNER_TEMP}/public-tree.tar" -C "${RUNNER_TEMP}/public-tree"
+
+      - name: Enforce the public package gate
+        run: >-
+          make release-audit
+          RELEASE_ROOT="${RUNNER_TEMP}/public-tree"
+          RELEASE_AUDIT="${RUNNER_TEMP}/release_audit.json"

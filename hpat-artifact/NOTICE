@@ -1,0 +1,27 @@
+HPAT Experimental Reproducibility Artifact
+Copyright 2026 Anonymous Artifact Authors
+
+LICENSE MAP
+
+1. Software
+
+   Original source code, experiment scripts, tests, workflow definitions,
+   machine-readable configuration, the Makefile, and packaging metadata are
+   licensed under the Apache License, Version 2.0. See
+   LICENSES/Apache-2.0.txt.
+
+2. Documentation and experiment data
+
+   Original documentation and original tabular experiment data are licensed
+   under the Creative Commons Attribution 4.0 International License. See
+   LICENSES/CC-BY-4.0.txt.
+
+3. Excluded material
+
+   Manuscripts, submission PDFs, publication artwork, bibliographies, reviewer
+   material, dataset images and archives, pretrained model weights, Core ML
+   packages, device traces and logs, and other third-party assets are not
+   redistributed.
+
+Files carrying a more specific copyright or license notice are governed by
+that notice. Nothing in this NOTICE grants rights in excluded material.

@@ -1,0 +1,13 @@
+model,case,energy_mj,evidence_label
+MobileViT-XXS,p05,0.032103,modelled component uncertainty sensitivity summary
+MobileViT-XXS,nominal,0.047211,modelled component uncertainty sensitivity summary
+MobileViT-XXS,p50,0.059459,modelled component uncertainty sensitivity summary
+MobileViT-XXS,p95,0.089710,modelled component uncertainty sensitivity summary
+MobileViT-XS,p05,0.091730,modelled component uncertainty sensitivity summary
+MobileViT-XS,nominal,0.136051,modelled component uncertainty sensitivity summary
+MobileViT-XS,p50,0.173858,modelled component uncertainty sensitivity summary
+MobileViT-XS,p95,0.261095,modelled component uncertainty sensitivity summary
+MobileViT-S,p05,0.157050,modelled component uncertainty sensitivity summary
+MobileViT-S,nominal,0.231161,modelled component uncertainty sensitivity summary
+MobileViT-S,p50,0.293567,modelled component uncertainty sensitivity summary
+MobileViT-S,p95,0.438775,modelled component uncertainty sensitivity summary

@@ -17,6 +17,7 @@ desktop.ini
 
 # ---- 说明 ----
 # results/ 下并非全部是产物：
-#   results/hpat_mobilevit/trace_v1/                 ← 实验输入（MobileViT 形状 trace）
-#   results/hpat_mobilevit/hardware_combo_32_10_25_v1/ ← 实验输入（P0 冻结点）
-# 这两项必须入库，否则任何 runner 都无法运行。详见 results/hpat_mobilevit/README.md
+#   results/hpat_mobilevit/trace_v1/                    ← 实验输入（MobileViT 形状 trace）
+#   results/hpat_mobilevit/hardware_combo_32_10_25_v1/  ← 实验输入（P0 冻结点）
+# 各实验目录下的 REPORT.md / README.md 为摘要，同样入库。
+# 大体积原始事件流（events.json / *.jsonl.gz 等）不入库；详见 results/hpat_mobilevit/README.md

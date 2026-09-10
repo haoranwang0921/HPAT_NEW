@@ -1,0 +1,2 @@
+model_variant,layer_id,op_type,n_dac_samples,n_adc_samples,n_pd_samples,n_tia_samples,n_mrr_active,n_mrr_program,active_optical_time_ns,buffer_read_bytes,buffer_write_bytes,bus_bytes,nonlinear_ops,calibration_events,thermal_tracking_time_ns
+MobileViT-XXS,xxs_layer_000,Linear,128,128,128,128,256,32,12.500000,1024,512,2048,0,1,12.500000

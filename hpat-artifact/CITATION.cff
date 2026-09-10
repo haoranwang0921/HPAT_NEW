@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this artifact, cite it anonymously until double-blind review concludes."
+title: "HPAT Reproducibility Artifact"
+type: software
+version: 1.0.1
+authors:
+  - name: "Anonymous Artifact Authors"
+abstract: >-
+  Reproducibility package for bounded architecture-level optoelectronic
+  acceleration experiments on MobileViT-style vision Transformers. Results are
+  local model diagnostics, not fabricated-silicon, measured HPAT timing or
+  energy, mobile-deployment, or full-ImageNet evidence.
+keywords:
+  - artifact evaluation
+  - MobileViT
+  - optoelectronic acceleration
+  - reproducibility
+license: Apache-2.0

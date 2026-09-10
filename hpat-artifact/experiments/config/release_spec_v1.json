@@ -1,0 +1,226 @@
+{
+  "schema_version": "hpat-experiment-release-spec-v1",
+  "release_version": "v1.0.1",
+  "require_git_commit": true,
+  "release_distribution": "Generate a commit-bound experiment reference tree after the anonymous root commit and upload only its deterministic sanitized archive plus the release checksum file.",
+  "canonical_profile": "paper_v1",
+  "canonical_manifest_names": [
+    "repro_manifest.json"
+  ],
+  "canonical": {
+    "device": "mps",
+    "allow_device_fallback": false,
+    "sample_count": 1024,
+    "sample_seed": 20260706,
+    "repeat_seeds": [
+      20260706,
+      20260707,
+      20260708,
+      20260709,
+      20260710
+    ],
+    "effects": [
+      "gaussian_pd_tia_noise",
+      "wdm_adjacent_crosstalk",
+      "mrr_variation",
+      "thermal_drift"
+    ],
+    "evidence_tier": "paper_eligible_with_limitations",
+    "evidence_class": "local-modelled diagnostic"
+  },
+  "required_artifact_groups": {
+    "mapping": [
+      "mapping_scenario_speedup_bound.csv",
+      "mobilevit_mapping_scenarios.csv",
+      "mobilevit_operator_activity.csv"
+    ],
+    "energy": [
+      "hpat_energy_by_component_reasonable_max_mapping.csv",
+      "energy_uncertainty_summary.csv"
+    ],
+    "sensitivity": [
+      "nonideality_paired_transition_summary.csv",
+      "nonideality_accuracy_by_severity.csv"
+    ],
+    "sample_manifest": [
+      "subset.csv",
+      "canonical_v1_samples.csv",
+      "paper_v1_samples.csv",
+      "sample_manifest.csv",
+      "dataset_manifest.csv",
+      "fixed_subset.csv"
+    ],
+    "p0_gate": [
+      "p0_readiness_summary.json"
+    ]
+  },
+  "required_group_modes": {
+    "mapping": "all",
+    "energy": "all",
+    "sensitivity": "all",
+    "sample_manifest": "any",
+    "p0_gate": "all"
+  },
+  "table_schemas": {
+    "mapping_scenario_speedup_bound.csv": [
+      "model",
+      "scenario",
+      "mapped_fraction",
+      "optical_speedup_assumption",
+      "e2e_speedup_upper_bound",
+      "evidence_tier",
+      "claim_boundary"
+    ],
+    "mobilevit_mapping_scenarios.csv": [
+      "model",
+      "scenario",
+      "mapped_mac_share_percent",
+      "evidence_tier",
+      "claim_boundary"
+    ],
+    "mobilevit_operator_activity.csv": [
+      "model",
+      "op_group",
+      "estimated_macs",
+      "trace_source",
+      "evidence_label"
+    ],
+    "hpat_energy_by_component_reasonable_max_mapping.csv": [
+      "model_variant",
+      "component_group",
+      "energy_mj",
+      "evidence_label",
+      "evidence_tier"
+    ],
+    "energy_uncertainty_summary.csv": [
+      "model",
+      "case",
+      "energy_mj",
+      "evidence_label"
+    ],
+    "nonideality_paired_transition_summary.csv": [
+      "variant",
+      "effect",
+      "sample_count",
+      "seeds",
+      "metric_definition",
+      "claim_boundary"
+    ],
+    "nonideality_accuracy_by_severity.csv": [
+      "variant",
+      "effect",
+      "sample_count",
+      "claim_boundary"
+    ],
+    "canonical_v1_samples.csv": [
+      "path",
+      "label",
+      "synset",
+      "image_sha256"
+    ],
+    "paper_v1_samples.csv": [
+      "path",
+      "label",
+      "synset",
+      "image_sha256"
+    ],
+    "sample_manifest.csv": [
+      "path",
+      "label",
+      "synset",
+      "image_sha256"
+    ],
+    "dataset_manifest.csv": [
+      "path",
+      "label",
+      "synset",
+      "image_sha256"
+    ],
+    "fixed_subset.csv": [
+      "path",
+      "label",
+      "synset",
+      "image_sha256"
+    ],
+    "subset.csv": [
+      "path",
+      "label",
+      "synset",
+      "class_name",
+      "image_sha256"
+    ]
+  },
+  "claim_boundary": "Published artifact results are architecture-level reasonable-high mapping bounds, modelled component energy, and a local 1024-sample diagnostic with declared limitations. They are not fabricated-silicon measurements, measured HPAT edge/mobile deployment, calibrated deployment energy, or broad cross-platform superiority.",
+  "blocked_evidence_lanes": [
+    "P0-E1",
+    "P0-E2",
+    "P0-E4"
+  ],
+  "required_public_files": [
+    ".gitattributes",
+    ".github/workflows/artifact-ci.yml",
+    ".gitignore",
+    ".python-version",
+    "CITATION.cff",
+    "CONTRIBUTING.md",
+    "LICENSES/Apache-2.0.txt",
+    "LICENSES/CC-BY-4.0.txt",
+    "Makefile",
+    "NOTICE",
+    "README.md",
+    "REPRODUCIBILITY.md",
+    "SECURITY.md",
+    "docs/REVIEWER_GUIDE.md",
+    "docs/claim_boundary.md",
+    "experiments/config/energy_unit_costs.yaml",
+    "experiments/config/hpat_experiment_config.json",
+    "experiments/config/paper_v1.json",
+    "experiments/config/release_spec_v1.json",
+    "experiments/README.md",
+    "experiments/scripts/_common.py",
+    "experiments/scripts/audit_public_release.py",
+    "experiments/scripts/freeze_repro_release.py",
+    "experiments/scripts/run_e_local_trace_driven_activity.py",
+    "experiments/scripts/run_evidence_strength_summary.py",
+    "experiments/scripts/run_mobilevit_activity_trace.py",
+    "experiments/scripts/run_nonideality_accuracy_sweep.py",
+    "experiments/scripts/run_operator_mapping_closure.py",
+    "experiments/scripts/summarize_paired_prediction_transitions.py",
+    "experiments/src/hpat_eval/repro_cli.py",
+    "experiments/src/hpat_eval/reproducibility.py",
+    "experiments/tests/test_release_freeze.py",
+    "experiments/tests/test_reproducibility_package.py",
+    "pyproject.toml",
+    "tables/canonical_v1_samples.csv",
+    "uv.lock"
+  ],
+  "public_allowlist": [
+    ".gitattributes",
+    ".github/workflows/artifact-ci.yml",
+    ".gitignore",
+    ".python-version",
+    "CITATION.cff",
+    "CONTRIBUTING.md",
+    "LICENSES/*.txt",
+    "Makefile",
+    "NOTICE",
+    "README.md",
+    "REPRODUCIBILITY.md",
+    "SECURITY.md",
+    "docs/*.md",
+    "experiments/README.md",
+    "experiments/config/*.json",
+    "experiments/config/*.yaml",
+    "experiments/scripts/*.py",
+    "experiments/src/hpat_eval/*.py",
+    "experiments/tests/*.py",
+    "experiments/tests/fixtures/*.csv",
+    "experiments/tests/fixtures/*.json",
+    "experiments/tests/fixtures/*.yaml",
+    "pyproject.toml",
+    "tables/*.csv",
+    "tables/*.json",
+    "tables/*.md",
+    "uv.lock"
+  ]
+}
